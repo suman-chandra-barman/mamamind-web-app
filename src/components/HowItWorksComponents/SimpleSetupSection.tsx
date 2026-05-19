@@ -84,7 +84,7 @@ const SimpleSetupSection = () => {
         <MotionReveal>
           <SectionHeading
             semiTitle="Simple Setup"
-            title="How Famora works"
+            title="How Mamamind works"
             description="From sign-up to your first WhatsApp message in under 5 minutes."
             descriptionClassName="text-xs text-secondary md:text-sm"
           />

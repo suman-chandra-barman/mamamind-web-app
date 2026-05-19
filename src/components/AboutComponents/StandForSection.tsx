@@ -27,7 +27,7 @@ const values = [
     icon: Shield,
     title: "Privacy by Design",
     description:
-      "Your family's data belongs to your family. We are GDPR compliant, never sell data to third parties, and have built privacy controls directly into the core of how Famora works.",
+      "Your family's data belongs to your family. We are GDPR compliant, never sell data to third parties, and have built privacy controls directly into the core of how Mamamind works.",
   },
   {
     icon: Lightbulb,

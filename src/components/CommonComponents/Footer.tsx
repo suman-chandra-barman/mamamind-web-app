@@ -82,7 +82,7 @@ const Footer = () => {
               className="flex items-center justify-center gap-2 sm:justify-start"
             >
               <Image
-                src="/famora-logo.png"
+                src="/logo.png"
                 alt="logo"
                 width={24}
                 height={24}

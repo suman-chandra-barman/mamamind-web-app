@@ -3,6 +3,8 @@
 import type { Metadata } from "next";
 import { Google_Sans } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
+import StoreProvider from "@/redux/StoreProvider";
 
 const googleSans = Google_Sans({
   variable: "--font-sans",
@@ -25,7 +27,10 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className="min-h-full flex flex-col bg-background w-full mx-auto"
       >
-        {children}
+        <StoreProvider>
+          <ToastContainer />
+          {children}
+        </StoreProvider>
       </body>
     </html>
   );
