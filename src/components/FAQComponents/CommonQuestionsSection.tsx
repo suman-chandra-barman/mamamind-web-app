@@ -38,6 +38,7 @@ const CommonQuestionsSection = () => {
   const categories = (data?.data.categories ?? []) as FaqCategory[];
   const faqs = (data?.data.faqs ?? []) as FaqItem[];
   const showSkeleton = isLoading || isFetching;
+  const hasCategories = categories.length > 0;
 
   return (
     <section className="w-full bg-transparent py-16 sm:py-20">
@@ -50,20 +51,14 @@ const CommonQuestionsSection = () => {
         </MotionReveal>
 
         <MotionReveal delay={0.08}>
-          {showSkeleton ? (
-            <FAQSectionSkeleton />
-          ) : isError ? (
-            <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-button-bg/20 bg-white/80 px-6 py-8 text-center text-sm text-secondary">
-              Failed to load FAQs. Please try again later.
-            </div>
-          ) : (
-            <Tabs
-              value={activeTab}
-              onValueChange={(value) => setActiveTab(value as FaqCategoryKey)}
-              className="mx-auto mt-10 max-w-3xl"
-            >
-              <TabsList className="mx-auto h-auto flex-wrap gap-2 rounded-full bg-transparent p-0">
-                {categories.map((tab) => (
+          <Tabs
+            value={activeTab}
+            onValueChange={(value) => setActiveTab(value as FaqCategoryKey)}
+            className="mx-auto mt-10 max-w-3xl"
+          >
+            <TabsList className="mx-auto h-auto flex-wrap gap-2 rounded-full bg-transparent p-0">
+              {hasCategories ? (
+                categories.map((tab) => (
                   <TabsTrigger
                     key={tab.key}
                     value={tab.key}
@@ -71,10 +66,27 @@ const CommonQuestionsSection = () => {
                   >
                     {tab.label}
                   </TabsTrigger>
-                ))}
-              </TabsList>
+                ))
+              ) : (
+                <div className="flex flex-wrap justify-center gap-2">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <div
+                      key={`faq-tab-placeholder-${index}`}
+                      className="h-7 w-20 rounded-full border border-button-bg/15 md:h-8 md:w-24"
+                    />
+                  ))}
+                </div>
+              )}
+            </TabsList>
 
-              {categories.map((tab) => (
+            {showSkeleton ? (
+              <FAQSectionSkeleton showTabs={false} />
+            ) : isError ? (
+              <div className="mx-auto mt-8 rounded-2xl border border-button-bg/20 bg-white/80 px-6 py-8 text-center text-sm text-secondary">
+                Failed to load FAQs. Please try again later.
+              </div>
+            ) : (
+              categories.map((tab) => (
                 <TabsContent
                   key={tab.key}
                   value={tab.key}
@@ -113,9 +125,9 @@ const CommonQuestionsSection = () => {
                     </MotionStagger>
                   )}
                 </TabsContent>
-              ))}
-            </Tabs>
-          )}
+              ))
+            )}
+          </Tabs>
         </MotionReveal>
       </div>
     </section>

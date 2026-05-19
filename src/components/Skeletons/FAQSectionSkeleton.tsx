@@ -3,19 +3,25 @@
 import React from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const FAQSectionSkeleton = () => {
+type FAQSectionSkeletonProps = {
+  showTabs?: boolean;
+};
+
+const FAQSectionSkeleton = ({ showTabs = true }: FAQSectionSkeletonProps) => {
   return (
     <div className="mx-auto mt-10 max-w-3xl">
-      <div className="flex flex-wrap justify-center gap-2">
-        {Array.from({ length: 5 }).map((_, index) => (
-          <Skeleton
-            key={`faq-tab-skeleton-${index}`}
-            className="h-7 w-20 rounded-full md:h-8 md:w-24"
-          />
-        ))}
-      </div>
+      {showTabs ? (
+        <div className="flex flex-wrap justify-center gap-2">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <Skeleton
+              key={`faq-tab-skeleton-${index}`}
+              className="h-7 w-20 rounded-full md:h-8 md:w-24"
+            />
+          ))}
+        </div>
+      ) : null}
 
-      <div className="mt-8 space-y-3">
+      <div className={showTabs ? "mt-8 space-y-3" : "space-y-3"}>
         {Array.from({ length: 5 }).map((_, index) => (
           <div
             key={`faq-item-skeleton-${index}`}
