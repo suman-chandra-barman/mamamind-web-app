@@ -3,8 +3,6 @@
 import type { Metadata } from "next";
 import { Google_Sans } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/components/CommonComponents/NavBar";
-import Footer from "@/components/CommonComponents/Footer";
 
 const googleSans = Google_Sans({
   variable: "--font-sans",
@@ -27,9 +25,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className="min-h-full flex flex-col bg-background w-full mx-auto"
       >
-        <NavBar />
         {children}
-        <Footer />
       </body>
     </html>
   );
