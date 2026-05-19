@@ -4,8 +4,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { MenuIcon } from "lucide-react";
+import { useRef, useState, useSyncExternalStore } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -14,6 +15,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { logout } from "@/redux/features/auth/authSlice";
+import LogoutModal from "@/components/Modals/LogoutModal";
+import UserMenuDropdown from "@/components/Dropdowns/UserMenuDropdown";
+import type { AuthUser } from "@/types/auth";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -24,7 +30,56 @@ const navItems = [
 ];
 
 const NavBar = () => {
+  const user = useAppSelector((state) => state.auth.user);
   const pathname = usePathname();
+  const router = useRouter();
+  const dispatch = useAppDispatch();
+  const [isLogoutOpen, setIsLogoutOpen] = useState(false);
+  const cachedUserRef = useRef<{
+    raw: string | null;
+    parsed: AuthUser | null;
+  } | null>(null);
+  const hasMounted = useSyncExternalStore(
+    (callback) => {
+      if (typeof window === "undefined") return () => {};
+      window.addEventListener("storage", callback);
+      return () => window.removeEventListener("storage", callback);
+    },
+    () => true,
+    () => false,
+  );
+  const cachedUser = useSyncExternalStore(
+    (callback) => {
+      if (typeof window === "undefined") return () => {};
+      window.addEventListener("storage", callback);
+      return () => window.removeEventListener("storage", callback);
+    },
+    () => {
+      if (typeof window === "undefined") return null;
+      const storedUser = localStorage.getItem("user");
+      const cached = cachedUserRef.current;
+      if (cached && cached.raw === storedUser) {
+        return cached.parsed;
+      }
+
+      if (!storedUser) {
+        cachedUserRef.current = { raw: null, parsed: null };
+        return null;
+      }
+
+      try {
+        const parsed = JSON.parse(storedUser) as AuthUser;
+        cachedUserRef.current = { raw: storedUser, parsed };
+        return parsed;
+      } catch {
+        cachedUserRef.current = { raw: storedUser, parsed: null };
+        return null;
+      }
+    },
+    () => null,
+  );
+  const effectiveUser = user ?? cachedUser;
+  const isAuthenticated = Boolean(effectiveUser);
 
   const isActiveLink = (href: string) => {
     if (href === "/") {
@@ -32,6 +87,12 @@ const NavBar = () => {
     }
 
     return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
+  const handleLogoutConfirm = () => {
+    dispatch(logout());
+    setIsLogoutOpen(false);
+    router.push("/signin");
   };
 
   return (
@@ -69,12 +130,21 @@ const NavBar = () => {
         </nav>
 
         <div className="hidden shrink-0 md:flex">
-          <Button
-            asChild
-            className="h-10 rounded-full bg-button-bg px-6 text-[15px] font-medium text-white shadow-[0_8px_18px_rgba(175,141,78,0.28)] hover:bg-[#9f8046]!"
-          >
-            <Link href="/signin">Get Started</Link>
-          </Button>
+          {!hasMounted ? (
+            <div className="h-10 w-10 animate-pulse rounded-full bg-[#f0e6d6]" />
+          ) : isAuthenticated && effectiveUser ? (
+            <UserMenuDropdown
+              user={effectiveUser}
+              onLogoutClick={() => setIsLogoutOpen(true)}
+            />
+          ) : (
+            <Button
+              asChild
+              className="h-10 rounded-full bg-button-bg px-6 text-[15px] font-medium text-white shadow-[0_8px_18px_rgba(175,141,78,0.28)] hover:bg-[#9f8046]!"
+            >
+              <Link href="/signin">Get Started</Link>
+            </Button>
+          )}
         </div>
 
         {/* Mobile menu */}
@@ -109,16 +179,47 @@ const NavBar = () => {
                 </Link>
               ))}
 
-              <Button
-                asChild
-                className="mt-2 h-10 rounded-2xl bg-button-bg text-[15px] font-medium text-white hover:bg-[#9f8046]"
-              >
-                <Link href="/signin">Get Started</Link>
-              </Button>
+              {!hasMounted ? (
+                <div className="mt-2 h-10 rounded-2xl bg-white/60" />
+              ) : isAuthenticated ? (
+                <div className="mt-2 grid gap-1">
+                  <Link
+                    href="/dashboard"
+                    className="rounded-2xl px-4 py-2 text-[15px] font-medium text-primary transition-colors hover:bg-white/70"
+                  >
+                    Dashboard
+                  </Link>
+                  <Link
+                    href="/settings"
+                    className="rounded-2xl px-4 py-2 text-[15px] font-medium text-primary transition-colors hover:bg-white/70"
+                  >
+                    Settings
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setIsLogoutOpen(true)}
+                    className="cursor-pointer rounded-2xl px-4 py-2 text-left text-[15px] font-medium text-red-600 transition-colors hover:bg-red-50"
+                  >
+                    Log out
+                  </button>
+                </div>
+              ) : (
+                <Button
+                  asChild
+                  className="mt-2 h-10 rounded-2xl bg-button-bg text-[15px] font-medium text-white hover:bg-[#9f8046]"
+                >
+                  <Link href="/signin">Get Started</Link>
+                </Button>
+              )}
             </div>
           </DialogContent>
         </Dialog>
       </div>
+      <LogoutModal
+        open={isLogoutOpen}
+        onOpenChange={setIsLogoutOpen}
+        onConfirm={handleLogoutConfirm}
+      />
     </header>
   );
 };
