@@ -1,6 +1,5 @@
 /** @format */
 
-import React from "react";
 import CommonQuestionsSection from "@/components/FAQComponents/CommonQuestionsSection";
 import StillHaveQuestionSection from "@/components/FAQComponents/StillHaveQuestionSection";
 
