@@ -3,8 +3,13 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { MotionReveal } from "../CommonComponents/MotionReveal";
 import SectionHeading from "../CommonComponents/SectionHeading";
+import {
+  useSendContactMessageMutation,
+  type ContactEnquiryType,
+} from "@/redux/features/contact/contactApi";
 
 const SendMessageSection = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +19,7 @@ const SendMessageSection = () => {
     subject: "",
     message: "",
   });
+  const [sendMessage, { isLoading }] = useSendContactMessageMutation();
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -26,10 +32,40 @@ const SendMessageSection = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add your form submission logic here
+
+    try {
+      const response = await sendMessage({
+        enquiry_type: formData.enquiryType as ContactEnquiryType,
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      }).unwrap();
+
+      toast.success(response.message);
+      setFormData({
+        enquiryType: "",
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+    } catch (error) {
+      const fallbackMessage =
+        "An error occurred while sending your message. Please try again later.";
+      const message =
+        typeof error === "object" &&
+        error !== null &&
+        "data" in error &&
+        typeof (error as { data?: { message?: string } }).data?.message ===
+          "string"
+          ? (error as { data?: { message?: string } }).data?.message
+          : fallbackMessage;
+
+      toast.error(message);
+    }
   };
 
   return (
@@ -58,10 +94,12 @@ const SendMessageSection = () => {
             required
           >
             <option value="">Select enquiry type</option>
-            <option value="general">General Enquiry</option>
-            <option value="billing">Billing Question</option>
-            <option value="account">Account Help</option>
-            <option value="feedback">Feedback</option>
+            <option value="general">General</option>
+            <option value="billing">Billing</option>
+            <option value="features">Features</option>
+            <option value="privacy">Privacy</option>
+            <option value="getting_started">Getting Started</option>
+            <option value="support">Support</option>
           </select>
         </div>
 
@@ -132,9 +170,10 @@ const SendMessageSection = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full px-6 py-3 rounded-full bg-button-bg hover:bg-opacity-90 text-white text-xs md:text-sm font-semibold transition-all duration-300 hover:shadow-lg"
+          disabled={isLoading}
+          className="w-full px-6 py-3 rounded-full bg-button-bg hover:bg-opacity-90 text-white text-xs md:text-sm font-semibold transition-all duration-300 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70"
         >
-          ✉ Send Message
+          {isLoading ? "Sending..." : "✉ Send Message"}
         </button>
 
         <p className="text-xs text-secondary text-center">

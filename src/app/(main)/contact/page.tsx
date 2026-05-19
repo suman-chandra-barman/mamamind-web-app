@@ -1,6 +1,5 @@
 /** @format */
 
-import React from "react";
 import GetInTouchSection from "@/components/ContactComponents/GetInTouchSection";
 import SupportInformationSection from "@/components/ContactComponents/SupportInformationSection";
 import MessageAndQuestionsSection from "@/components/ContactComponents/MessageAndQuestionsSection";
