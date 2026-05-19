@@ -83,13 +83,13 @@ const Footer = () => {
             >
               <Image
                 src="/famora-logo.png"
-                alt="Famora logo"
+                alt="logo"
                 width={24}
                 height={24}
                 className="h-6 w-6 rounded-sm bg-white object-contain"
               />
               <span className="text-2xl font-semibold text-[#e8ddcc]">
-                Famora
+                Mamamind
               </span>
             </Link>
             <p className="mx-auto mt-4 max-w-56 text-sm leading-7 text-[#ab9f90] sm:mx-0">
@@ -109,7 +109,7 @@ const Footer = () => {
         </div>
 
         <p className="py-4 md:py-6 text-center text-xs text-[#9f9182]">
-          © 2025 Famora. All rights reserved.
+          © {new Date().getFullYear()} Mamamind. All rights reserved.
         </p>
       </div>
     </footer>

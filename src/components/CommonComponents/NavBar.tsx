@@ -37,7 +37,7 @@ const NavBar = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#d8cab4] bg-secondary-background/95 backdrop-blur-sm">
       <div className="mx-auto flex h-14 md:h-18 max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex shrink-0 items-center gap-3">
+        <Link href="/" className="flex shrink-0 items-center gap-1">
           <Image
             src="/famora-logo.png"
             alt="logo"
