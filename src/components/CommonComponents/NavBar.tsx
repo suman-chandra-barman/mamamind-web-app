@@ -36,18 +36,18 @@ const NavBar = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#d8cab4] bg-secondary-background/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-14 md:h-18 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-14 md:h-18 max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex shrink-0 items-center gap-3">
           <Image
             src="/famora-logo.png"
-            alt="Famora logo"
+            alt="logo"
             width={38}
             height={38}
             priority
             className="h-9 w-9 object-contain"
           />
           <span className="text-base sm:text-lg md:text-xl lg:text-[22px] font-bold tracking-tight text-primary ">
-            Famora
+            Mamamind
           </span>
         </Link>
 
