@@ -12,7 +12,7 @@ const hoodCards = [
   {
     title: "Instant AI Responses",
     description:
-      "Famora responds to every message in seconds, powered by advanced language models trained for family organisation.",
+      "Mamamind responds to every message in seconds, powered by advanced language models trained for family organisation.",
     icon: Zap,
   },
   {
@@ -30,13 +30,13 @@ const hoodCards = [
   {
     title: "Multi-Language Support",
     description:
-      "Famora understands and responds in major global languages, perfect for multilingual households.",
+      "Mamamind understands and responds in major global languages, perfect for multilingual households.",
     icon: Globe,
   },
   {
     title: "AI Personalisation",
     description:
-      "The more your family uses Famora, the smarter it gets with routines, preferences, and communication style.",
+      "The more your family uses Mamamind, the smarter it gets with routines, preferences, and communication style.",
     icon: Sparkles,
   },
   {
@@ -55,7 +55,7 @@ const HoodSection = () => {
           <SectionHeading
             semiTitle="Under The Hood"
             title="Advanced intelligence, simple experience"
-            description="Famora is powered by cutting-edge AI, but you only feel simplicity through WhatsApp."
+            description="Mamamind is powered by cutting-edge AI, but you only feel simplicity through WhatsApp."
           />
         </MotionReveal>
 

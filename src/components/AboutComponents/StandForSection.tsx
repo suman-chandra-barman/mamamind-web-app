@@ -39,13 +39,13 @@ const values = [
     icon: Users,
     title: "Built for Everyone",
     description:
-      "Famora works for every type of family large, small, multilingual, or blended. We design for real diversity, because no two families are the same.",
+      "Mamamind works for every type of family large, small, multilingual, or blended. We design for real diversity, because no two families are the same.",
   },
   {
     icon: Globe,
     title: "Accessible Everywhere",
     description:
-      "By choosing WhatsApp as our platform, Famora works on any smartphone worldwide, without requiring a separate app download, account setup, or technical know-how.",
+      "By choosing WhatsApp as our platform, Mamamind works on any smartphone worldwide, without requiring a separate app download, account setup, or technical know-how.",
   },
   {
     icon: BadgeCheck,
@@ -63,7 +63,7 @@ const StandForSection = () => {
           <SectionHeading
             semiTitle="What We Stand For"
             title="Our values guide every decision"
-            description="From how we write code to how we respond to support tickets, these principles are embedded in everything we do at Famora."
+            description="From how we write code to how we respond to support tickets, these principles are embedded in everything we do at Mamamind."
             className="max-w-4xl"
             descriptionClassName="mx-auto mt-4 max-w-2xl text-sm text-secondary md:text-base"
           />

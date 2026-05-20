@@ -33,7 +33,7 @@ const coreFeatures = [
   {
     title: "Smart Reminders",
     description:
-      "Set reminders once and let Famora remember everything from school forms to dentist visits.",
+      "Set reminders once and let Mamamind remember everything from school forms to dentist visits.",
     bullets: [
       "Advanced date recognition",
       "Repeat schedules for routines",
@@ -44,7 +44,7 @@ const coreFeatures = [
   {
     title: "Conflict Detection",
     description:
-      "Famora checks family schedules automatically to highlight overlaps before they become problems.",
+      "Mamamind checks family schedules automatically to highlight overlaps before they become problems.",
     bullets: [
       "Instant clash alerts",
       "Members affected shown clearly",
@@ -110,7 +110,7 @@ const coreFeatures = [
   {
     title: "WhatsApp Native",
     description:
-      "No new app needed. Famora works directly in WhatsApp where your family already communicates.",
+      "No new app needed. Mamamind works directly in WhatsApp where your family already communicates.",
     bullets: [
       "No installation required",
       "Works across iOS and Android",
@@ -131,7 +131,7 @@ const CoreFeaturesSection = () => {
           <SectionHeading
             semiTitle="Core Features"
             title="Every tool your family needs"
-            description="From scheduling to meal planning, Famora covers the full spectrum of family organisation through simple WhatsApp messages."
+            description="From scheduling to meal planning, Mamamind covers the full spectrum of family organisation through simple WhatsApp messages."
           />
         </MotionReveal>
 

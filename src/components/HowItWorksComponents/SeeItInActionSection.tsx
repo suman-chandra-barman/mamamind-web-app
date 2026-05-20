@@ -15,25 +15,25 @@ const chatCards = [
   {
     id: "chat-1",
     src: "/ChatMockup-1.png",
-    alt: "Famora reminder conversation preview",
+    alt: "Mamamind reminder conversation preview",
     className: "md:col-span-1",
   },
   {
     id: "chat-2",
     src: "/ChatMockup-2.png",
-    alt: "Famora meal planning conversation preview",
+    alt: "Mamamind meal planning conversation preview",
     className: "md:col-span-1",
   },
   {
     id: "chat-3",
     src: "/ChatMockup-3.png",
-    alt: "Famora conflict detection conversation preview",
+    alt: "Mamamind conflict detection conversation preview",
     className: "md:col-span-1",
   },
   {
     id: "chat-4",
     src: "/ChatMockup-4.png",
-    alt: "Famora location search conversation preview",
+    alt: "Mamamind location search conversation preview",
     className: "md:col-span-1 md:max-w-[360px]",
   },
 ];

@@ -31,12 +31,12 @@ const WhatsAppSection = () => {
                 title="The app your family already uses"
                 className="mx-0 max-w-none text-center lg:text-left"
                 titleClassName="text-primary"
-                description="WhatsApp is the most widely used messaging app in the world, with over 2 billion active users. Your family is already on it every day. Famora plugs directly into that habit — no training required, no new interface to learn."
+                description="WhatsApp is the most widely used messaging app in the world, with over 2 billion active users. Your family is already on it every day. Mamamind plugs directly into that habit — no training required, no new interface to learn."
                 descriptionClassName="text-secondary text-sm md:text-base mt-5 text-center mx-auto lg:text-left"
               />
 
               <p className="mt-5 text-sm leading-8 text-secondary md:text-base ">
-                By living inside WhatsApp, Famora achieves something no
+                By living inside WhatsApp, Mamamind achieves something no
                 standalone app can: true adoption. When reminders and updates
                 arrive in the same thread as family messages, they actually get
                 seen and acted on.

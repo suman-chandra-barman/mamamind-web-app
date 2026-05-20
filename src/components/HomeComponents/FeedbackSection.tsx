@@ -11,7 +11,7 @@ import {
 const feedback = [
   {
     quote:
-      "Famora has completely changed how our family stays organised. I used to manage everything in my head now the bot handles it all.",
+      "Mamamind has completely changed how our family stays organised. I used to manage everything in my head now the bot handles it all.",
     name: "Sarah M.",
     role: "Mother of 3",
   },

@@ -8,7 +8,7 @@ import {
 } from "@/components/CommonComponents/MotionReveal";
 
 const stats = [
-  { value: "5,000+", label: "Families using Famora" },
+  { value: "5,000+", label: "Families using Mamamind" },
   { value: "14", label: "Countries" },
   { value: "98%", label: "Satisfaction rate" },
   { value: "2 yrs", label: "Average subscription length" },

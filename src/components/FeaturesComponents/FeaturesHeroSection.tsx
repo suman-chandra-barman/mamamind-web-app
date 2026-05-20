@@ -12,9 +12,9 @@ const FeaturesHeroSection = () => {
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col items-center px-4 sm:px-6 lg:px-8">
         <MotionReveal>
           <SectionHeading
-            semiTitle="Everything Famora Can Do"
+            semiTitle="Everything Mamamind Can Do"
             title="Built for real families. Designed for real life."
-            description="Famora isn't just a reminder app. It's a fully intelligent family assistant that lives inside WhatsApp and grows smarter with every message."
+            description="Mamamind isn't just a reminder app. It's a fully intelligent family assistant that lives inside WhatsApp and grows smarter with every message."
             titleClassName="max-w-4xl text-3xl leading-[1.08] font-bold tracking-tight text-[#EDE0CC] sm:text-5xl lg:text-[56px]"
             descriptionClassName="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#b7a998] sm:text-lg"
           />

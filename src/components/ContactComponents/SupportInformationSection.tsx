@@ -54,7 +54,7 @@ const SupportInformationSection = () => {
       title: "Email Support",
       description:
         "For general enquiries, billing questions, and account help.",
-      contact: "hello@famora.ai",
+      contact: "hello@mamamind.ai",
       actionText: "Send an email  →",
       delay: 0,
     },

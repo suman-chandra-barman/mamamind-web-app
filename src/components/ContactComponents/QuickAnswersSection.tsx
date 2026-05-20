@@ -33,7 +33,7 @@ const QuickAnswersSection = () => {
     {
       question: "How do I cancel my subscription?",
       answer:
-        "You can cancel at any time from your dashboard or by emailing hello@famora.ai. Cancellations take effect at the end of your current billing period.",
+        "You can cancel at any time from your dashboard or by emailing hello@mamamind.ai. Cancellations take effect at the end of your current billing period.",
     },
     {
       question:
@@ -49,7 +49,7 @@ const QuickAnswersSection = () => {
     {
       question: "How do I add a new family member?",
       answer:
-        "In your dashboard, go to Family Members and click 'Invite Member'. They'll receive a WhatsApp message to activate their connection to the shared Famora bot.",
+        "In your dashboard, go to Family Members and click 'Invite Member'. They'll receive a WhatsApp message to activate their connection to the shared Mamamind bot.",
     },
     {
       question: "Is there a free trial?",
@@ -87,7 +87,7 @@ const QuickAnswersSection = () => {
               Registered Office
             </h4>
             <p className="text-primary text-xs md:text-sm font-medium mb-1">
-              Famora Technologies Ltd
+              Mamamind Technologies Ltd
             </p>
             <p className="text-secondary text-xs md:text-sm leading-6">
               20 Farringdon Road

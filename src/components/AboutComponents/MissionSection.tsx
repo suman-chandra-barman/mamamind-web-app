@@ -26,7 +26,7 @@ const MissionSection = () => {
               <p className="mt-6 text-sm leading-7 text-secondary md:text-base md:leading-8">
                 The invisible labour of family life remembering appointments,
                 tracking school events, managing meal plans, coordinating
-                schedules falls disproportionately on one person. Famora exists
+                schedules falls disproportionately on one person. Mamamind exists
                 to share that load.
               </p>
               <p className="mt-4 text-sm leading-7 text-secondary md:text-base md:leading-8">

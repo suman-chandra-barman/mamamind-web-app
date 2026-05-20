@@ -48,7 +48,7 @@ const steps: SetupStep[] = [
     index: "03",
     title: "Account is automatically created",
     description:
-      "Your Famora account is provisioned instantly behind the scenes. No manual setup required on our end.",
+      "Your Mamamind account is provisioned instantly behind the scenes. No manual setup required on our end.",
     icon: UserPlus,
   },
   {
@@ -64,7 +64,7 @@ const steps: SetupStep[] = [
     index: "05",
     title: "Click link to be redirected to WhatsApp",
     description:
-      "A single tap opens WhatsApp and connects you directly to your personal Famora AI assistant.",
+      "A single tap opens WhatsApp and connects you directly to your personal Mamamind AI assistant.",
     icon: MessageCircle,
   },
   {
@@ -72,7 +72,7 @@ const steps: SetupStep[] = [
     index: "06",
     title: "Start chatting with your AI family assistant",
     description:
-      "Say hello and start adding reminders, planning meals, setting up shared events, and exploring everything Famora can do.",
+      "Say hello and start adding reminders, planning meals, setting up shared events, and exploring everything Mamamind can do.",
     icon: Zap,
   },
 ];

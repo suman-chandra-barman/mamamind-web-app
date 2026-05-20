@@ -14,28 +14,28 @@ const story = [
     yearShort: "22",
     title: "The Idea",
     description:
-      "Famora was born out of a real problem: co-founders Amara and Luca were both struggling to manage their families' busy schedules across multiple disconnected apps.",
+      "Mamamind was born out of a real problem: co-founders Amara and Luca were both struggling to manage their families' busy schedules across multiple disconnected apps.",
   },
   {
     year: "2023",
     yearShort: "23",
     title: "First Beta",
     description:
-      "We launched a private beta with 50 families. Feedback was overwhelming families loved the WhatsApp experience and were using Famora daily within a week.",
+      "We launched a private beta with 50 families. Feedback was overwhelming families loved the WhatsApp experience and were using Mamamind daily within a week.",
   },
   {
     year: "2024",
     yearShort: "24",
     title: "Public Launch",
     description:
-      "Famora opened to the public. Within three months we had over 2,000 active family subscriptions across 14 countries, with zero paid marketing.",
+      "Mamamind opened to the public. Within three months we had over 2,000 active family subscriptions across 14 countries, with zero paid marketing.",
   },
   {
     year: "2025",
     yearShort: "25",
     title: "Growing Together",
     description:
-      "Today, Famora serves thousands of families worldwide. We've added multi-language support, meal planning, conflict detection, and are continually expanding based on subscriber feedback.",
+      "Today, Mamamind serves thousands of families worldwide. We've added multi-language support, meal planning, conflict detection, and are continually expanding based on subscriber feedback.",
   },
 ];
 

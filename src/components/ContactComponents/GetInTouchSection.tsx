@@ -13,7 +13,7 @@ const GetInTouchSection = () => {
           <SectionHeading
             semiTitle="GET IN TOUCH"
             title="We'd love to hear from you"
-            description="Have a question about Famora? Need help with your account? Or just want to share feedback? Our team is here and happy to help."
+            description="Have a question about Mamamind? Need help with your account? Or just want to share feedback? Our team is here and happy to help."
             className="mb-0"
           />
         </MotionReveal>

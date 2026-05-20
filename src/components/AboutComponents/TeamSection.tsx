@@ -14,7 +14,7 @@ const teamMembers = [
     name: "Amara Osei",
     role: "CEO & Co-Founder",
     description:
-      "Former product lead at a leading family tech startup. Mum of two. Built Famora after spending years trying to coordinate her family's schedule across four different apps.",
+      "Former product lead at a leading family tech startup. Mum of two. Built Mamamind after spending years trying to coordinate her family's schedule across four different apps.",
     image: "/team=1.jpg",
   },
   {
