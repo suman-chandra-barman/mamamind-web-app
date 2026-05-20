@@ -63,16 +63,6 @@ const Footer = () => {
           <h2 className="text-3xl font-bold tracking-tight text-[#EDE0CC] md:text-[40px]">
             Your family deserves a smarter way to stay connected.
           </h2>
-          <p className="mx-auto mt-6 md:mt-9 max-w-2xl text-sm leading-7 text-[#b7a998] sm:text-base">
-            Join thousands of families already using Famora. Start your 7-day
-            free trial today.
-          </p>
-          <Link
-            href="/pricing"
-            className="mt-7  duration-100 hover:scale-102 cursor-pointer inline-flex h-10 md:h-11 items-center rounded-full bg-button-bg px-8 text-sm font-medium text-white transition-colors hover:bg-[#9f8046]"
-          >
-            Start Your Free Trial
-          </Link>
         </div>
 
         <div className="mt-16 grid gap-10 border-b border-white/10 pb-10 sm:grid-cols-2 lg:grid-cols-5">

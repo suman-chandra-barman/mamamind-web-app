@@ -1,7 +1,5 @@
 /** @format */
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { MotionReveal } from "@/components/CommonComponents/MotionReveal";
 import SectionHeading from "../CommonComponents/SectionHeading";
 
@@ -20,15 +18,6 @@ const FeaturesHeroSection = () => {
             titleClassName="max-w-4xl text-3xl leading-[1.08] font-bold tracking-tight text-[#EDE0CC] sm:text-5xl lg:text-[56px]"
             descriptionClassName="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#b7a998] sm:text-lg"
           />
-        </MotionReveal>
-
-        <MotionReveal delay={0.2}>
-          <Button
-            asChild
-            className="mt-8 h-11 rounded-full bg-button-bg px-10 text-sm font-medium text-white hover:bg-[#9f8046]!"
-          >
-            <Link href="#core-features">Get Started</Link>
-          </Button>
         </MotionReveal>
       </div>
     </section>

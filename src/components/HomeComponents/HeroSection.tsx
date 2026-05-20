@@ -24,12 +24,6 @@ const HeroSection = () => {
           <div className="mt-8 flex w-full max-w-md flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button
               asChild
-              className="h-10 md:h-12 w-full rounded-full bg-button-bg px-7 text-sm font-medium text-white hover:bg-[#9f8046]! sm:w-auto"
-            >
-              <Link href="/pricing">Start Your Free Trial</Link>
-            </Button>
-            <Button
-              asChild
               variant="outline"
               className="h-10 md:h-12 w-full rounded-full border-primary/45 bg-transparent px-7 text-sm font-medium text-primary hover:bg-primary/5! sm:w-auto"
             >

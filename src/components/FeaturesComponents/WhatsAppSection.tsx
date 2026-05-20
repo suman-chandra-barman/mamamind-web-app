@@ -52,22 +52,6 @@ const WhatsAppSection = () => {
                   </MotionStaggerItem>
                 ))}
               </MotionStagger>
-
-              <MotionReveal delay={0.12}>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="mt-8 h-11 rounded-full border-button-bg bg-transparent px-8 text-sm font-medium text-button-bg hover:bg-button-bg/10! md:text-base"
-                >
-                  <Link
-                    href="#how-it-works"
-                    className="inline-flex items-center gap-2"
-                  >
-                    See How It Works
-                    <ChevronRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </MotionReveal>
             </div>
           </MotionReveal>
 
