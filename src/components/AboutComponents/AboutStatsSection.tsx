@@ -16,7 +16,7 @@ const stats = [
 
 const AboutStatsSection = () => {
   return (
-    <section className="w-full bg-tertiary-background py-12 sm:py-14 md:py-16">
+    <section className="w-full bg-tertiary-background py-12 sm:py-14 md:py-16 mb-12 sm:mb-14 md:mb-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <MotionStagger
           className="grid grid-cols-2 gap-8 text-center md:grid-cols-4 md:text-left"

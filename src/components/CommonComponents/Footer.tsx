@@ -30,7 +30,6 @@ const footerNavigation = [
     links: [
       { label: "About Us", href: "/about" },
       { label: "Contact", href: "/contact" },
-      { label: "Blog", href: "/blog" },
     ],
   },
   {

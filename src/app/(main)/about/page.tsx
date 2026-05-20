@@ -7,7 +7,6 @@ import StandForSection from "@/components/AboutComponents/StandForSection";
 import StorySection from "@/components/AboutComponents/StorySection";
 import TeamSection from "@/components/AboutComponents/TeamSection";
 import AboutStatsSection from "@/components/AboutComponents/AboutStatsSection";
-import ReadyToJoinSection from "@/components/AboutComponents/ReadyToJoinSection";
 
 const AboutPage = () => {
   return (
@@ -18,7 +17,6 @@ const AboutPage = () => {
       <StorySection />
       <TeamSection />
       <AboutStatsSection />
-      <ReadyToJoinSection />
     </main>
   );
 };
