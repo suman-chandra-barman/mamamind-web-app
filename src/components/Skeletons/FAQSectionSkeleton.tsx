@@ -1,6 +1,5 @@
 /** @format */
 
-import React from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 type FAQSectionSkeletonProps = {
@@ -21,14 +20,19 @@ const FAQSectionSkeleton = ({ showTabs = true }: FAQSectionSkeletonProps) => {
         </div>
       ) : null}
 
-      <div className={showTabs ? "mt-8 space-y-3" : "space-y-3"}>
-        {Array.from({ length: 5 }).map((_, index) => (
+      <div className={showTabs ? "mt-8 space-y-4" : "space-y-4 w-80 sm:w-100 md:min-w-150 lg:min-w-200"}>
+        {Array.from({ length: 6 }).map((_, index) => (
           <div
             key={`faq-item-skeleton-${index}`}
-            className="border-b border-button-bg/18 pb-3"
+            className="rounded-2xl border border-button-bg/10 bg-white/70 p-4 md:p-5"
           >
-            <Skeleton className="h-5 w-3/4 md:h-6" />
-            <Skeleton className="mt-2 h-3.5 w-5/6" />
+            <div className="flex items-center justify-between gap-4">
+              <Skeleton className="h-5 w-4/5 md:h-6" />
+              <Skeleton className="h-4 w-4 rounded-full" />
+            </div>
+            <div className="mt-3 space-y-2">
+              <Skeleton className="h-3.5 w-full" />
+            </div>
           </div>
         ))}
       </div>
