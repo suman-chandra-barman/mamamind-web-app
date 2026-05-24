@@ -19,10 +19,10 @@ import LogoutModal from "@/components/Modals/LogoutModal";
 
 const navItems = [
   { label: "Dashboard", href: "/dashboard" },
-  { label: "Family Members", href: "/family-members" },
-  { label: "Reminders", href: "/reminders" },
-  { label: "Subscription", href: "/subscription" },
-  { label: "Billing", href: "/billing" },
+  { label: "Family Members", href: "/dashboard/family-members" },
+  { label: "Reminders", href: "/dashboard/reminders" },
+  { label: "Subscription", href: "/dashboard/subscription" },
+  { label: "Billing", href: "/dashboard/billing" },
 ];
 
 export default function DashboardHeader() {
