@@ -72,7 +72,7 @@ const familyMembers = [
 
 const DashboardPage = () => {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
       <section className="grid gap-6 md:grid-cols-3">
         {planCards.map((card) => (
           <div

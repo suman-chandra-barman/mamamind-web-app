@@ -43,8 +43,7 @@ export default function DashboardHeader() {
   }, []);
 
   const isActive = (href: string) => {
-    if (href.startsWith("#")) return hash === href;
-    if (href === "/") return pathname === "/";
+    if (href === "/dashboard") return pathname === "/dashboard";
     return pathname === href || pathname?.startsWith(href + "/");
   };
 
