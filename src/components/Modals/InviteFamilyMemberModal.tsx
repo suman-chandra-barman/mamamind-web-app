@@ -18,7 +18,11 @@ import { Button } from "@/components/ui/button";
 interface InviteFamilyMemberModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onSubmit?: () => void;
+  onSubmit?: (data: {
+    full_name: string;
+    whatsapp_number: string;
+    relation: string;
+  }) => void;
 }
 
 const InviteFamilyMemberModal = ({
@@ -28,7 +32,13 @@ const InviteFamilyMemberModal = ({
 }: InviteFamilyMemberModalProps) => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSubmit?.();
+    const formData = new FormData(event.currentTarget);
+
+    onSubmit?.({
+      full_name: String(formData.get("full_name") ?? "").trim(),
+      whatsapp_number: String(formData.get("whatsapp_number") ?? "").trim(),
+      relation: String(formData.get("relation") ?? "").trim(),
+    });
     onOpenChange(false);
   };
 
@@ -48,6 +58,7 @@ const InviteFamilyMemberModal = ({
           <div>
             <label className="text-xs text-secondary">Full name</label>
             <input
+              name="full_name"
               type="text"
               placeholder="Enter member name"
               className="mt-1 h-10 w-full rounded-lg border border-button-bg/20 bg-white/70 px-3 text-sm text-primary outline-none transition focus:border-button-bg/45"
@@ -57,6 +68,7 @@ const InviteFamilyMemberModal = ({
           <div>
             <label className="text-xs text-secondary">WhatsApp number</label>
             <input
+              name="whatsapp_number"
               type="tel"
               placeholder="+44 7700 900 000"
               className="mt-1 h-10 w-full rounded-lg border border-button-bg/20 bg-white/70 px-3 text-sm text-primary outline-none transition focus:border-button-bg/45"
@@ -65,10 +77,18 @@ const InviteFamilyMemberModal = ({
 
           <div>
             <label className="text-xs text-secondary">Role</label>
-            <select className="mt-1 h-10 w-full rounded-lg border border-button-bg/20 bg-white/70 px-3 text-sm text-primary outline-none transition focus:border-button-bg/45">
+            <select
+              name="relation"
+              defaultValue=""
+              className="mt-1 h-10 w-full rounded-lg border border-button-bg/20 bg-white/70 px-3 text-sm text-primary outline-none transition focus:border-button-bg/45"
+            >
               <option value="">Select...</option>
+              <option value="owner">Owner</option>
               <option value="partner">Partner</option>
               <option value="child">Child</option>
+              <option value="parent">Parent</option>
+              <option value="caregiver">Caregiver</option>
+              <option value="other">Other</option>
             </select>
           </div>
 
