@@ -141,6 +141,41 @@ export const authApi = baseApi.injectEndpoints({
         }
       },
     }),
+    getProfile: builder.query({
+      query: () => ({
+        url: "/auth/profile/",
+        method: "GET",
+      }),
+      providesTags: ["User"],
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          if (data.success) {
+            dispatch(updateUser(data.data.user));
+          }
+        } catch {
+          // silently ignore
+        }
+      },
+    }),
+    updateProfile: builder.mutation({
+      query: (formData: FormData) => ({
+        url: "/auth/profile/",
+        method: "PATCH",
+        body: formData,
+      }),
+      invalidatesTags: ["User"],
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled;
+          if (data.success) {
+            dispatch(updateUser(data.data.user));
+          }
+        } catch {
+          // silently ignore
+        }
+      },
+    }),
   }),
 });
 
@@ -156,4 +191,6 @@ export const {
   useGetMeQuery,
   useGetUserAccountSettingsQuery,
   useUpdateUserAccountMutation,
+  useGetProfileQuery,
+  useUpdateProfileMutation,
 } = authApi;

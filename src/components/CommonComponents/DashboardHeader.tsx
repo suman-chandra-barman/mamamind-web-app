@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Bell, ChevronDown, Settings, User, LogOut } from "lucide-react";
+import { ChevronDown, Settings, User, LogOut } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   DropdownMenu,
@@ -22,7 +22,6 @@ const navItems = [
   { label: "Family Members", href: "/dashboard/family-members" },
   { label: "Reminders", href: "/dashboard/reminders" },
   { label: "Subscription", href: "/dashboard/subscription" },
-  { label: "Billing", href: "/dashboard/billing" },
 ];
 
 export default function DashboardHeader() {
@@ -78,38 +77,29 @@ export default function DashboardHeader() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`rounded-full px-4 py-2 transition-colors ${
-                  active
-                    ? "bg-white/20 text-white font-semibold ring-1 ring-white/25"
-                    : "text-white/80 hover:bg-white/15 hover:text-white"
-                }`}
+                className={`rounded-full px-4 py-2 transition-colors ${active
+                  ? "bg-white/20 text-white font-semibold ring-1 ring-white/25"
+                  : "text-white/80 hover:bg-white/15 hover:text-white"
+                  }`}
               >
                 {item.label}
               </Link>
             );
           })}
         </nav>
-
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/80 transition hover:bg-white/20"
-            aria-label="Notifications"
-          >
-            <Bell className="h-4 w-4" />
-          </button>
-          <button
-            type="button"
+          <Link
+            href="/dashboard/settings"
             className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white/80 transition hover:bg-white/20"
             aria-label="Settings"
           >
             <Settings className="h-4 w-4" />
-          </button>
+          </Link>
           <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>
               <button className="flex items-center gap-3 rounded-full border border-amber-100 bg-white px-3 py-1 text-left shadow-sm cursor-pointer">
                 <Avatar className="h-8 w-8">
-                  <AvatarImage
+                <AvatarImage
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${user?.profile_image}`}
                     alt="Admin"
                   />
@@ -138,16 +128,11 @@ export default function DashboardHeader() {
               </div>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <User className="h-4 w-4" />
-                Profile
-              </DropdownMenuItem>
-              <DropdownMenuItem>
                 <Link href="/settings" className="flex items-center gap-2">
                   <Settings className="h-4 w-4" />
                   Settings
                 </Link>
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
+              </DropdownMenuItem>              <DropdownMenuSeparator />
               <DropdownMenuItem
                 className="text-rose-500 focus:text-rose-500"
                 onClick={() => setIsLogoutOpen(true)}

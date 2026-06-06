@@ -16,6 +16,22 @@ export interface AuthFamily {
   member_status: string;
 }
 
+export interface AuthSubscriptionPlan {
+  id: number;
+  name: string;
+  code: string;
+  price: string;
+  currency: string;
+  billing_cycle: string;
+  member_limit: number;
+}
+
+export interface AuthSubscription {
+  id: number;
+  status: string;
+  plan: AuthSubscriptionPlan;
+}
+
 export interface AuthUser {
   id?: number;
   full_name?: string;
@@ -24,8 +40,10 @@ export interface AuthUser {
   role?: string;
   is_email_verified?: boolean;
   profile_image?: string | null;
+  profile_image_url?: string | null;
   account_type?: string;
   family?: AuthFamily;
+  subscription?: AuthSubscription;
 }
 
 export interface RegisterRequest {

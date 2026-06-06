@@ -79,7 +79,7 @@ const authSlice = createSlice({
         setCookie("refreshToken", action.payload.refreshToken);
       }
     },
-    updateUser: (state, action: PayloadAction<Partial<User>>) => {
+    updateUser: (state, action: PayloadAction<Partial<AuthUser>>) => {
       if (state.user) {
         state.user = { ...state.user, ...action.payload };
 
