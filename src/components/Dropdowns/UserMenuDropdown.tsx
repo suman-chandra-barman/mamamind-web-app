@@ -68,12 +68,12 @@ const UserMenuDropdown = ({ user, onLogoutClick }: UserMenuDropdownProps) => {
       >
         {user.profile_image ? (
           <Image
-            src={user.profile_image}
+            src={`${process.env.NEXT_PUBLIC_BASE_URL}${user.profile_image}`}
             alt={user.full_name ?? "User profile"}
             className="h-full w-full object-cover"
-            loading="lazy"
             width={44}
             height={44}
+            priority
           />
         ) : (
           <span className="text-sm font-semibold text-primary">{initials}</span>
