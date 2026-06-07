@@ -39,11 +39,41 @@ export type CheckoutResponse = {
   };
 };
 
+export type CurrentSubscription = {
+  id: number;
+  plan: SubscriptionPlan;
+  status: string;
+  status_display: string;
+  stripe_customer_id: string;
+  stripe_subscription_id: string;
+  current_period_start: string;
+  current_period_end: string;
+  cancel_at_period_end: boolean;
+  cancelled_at: string | null;
+  created_at: string;
+  updated_at: string;
+};
+
+export type CurrentSubscriptionResponse = {
+  success: boolean;
+  message: string;
+  data: {
+    subscription: CurrentSubscription;
+  };
+};
+
 export const subscriptionApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getSubscriptionPlans: builder.query<SubscriptionPlansResponse, void>({
       query: () => ({
         url: "/subscriptions/plans/",
+        method: "GET",
+      }),
+      providesTags: ["Subscription"],
+    }),
+    getCurrentSubscription: builder.query<CurrentSubscriptionResponse, void>({
+      query: () => ({
+        url: "/subscriptions/current/",
         method: "GET",
       }),
       providesTags: ["Subscription"],
@@ -59,5 +89,8 @@ export const subscriptionApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetSubscriptionPlansQuery, useCheckoutSubscriptionMutation } =
-  subscriptionApi;
+export const {
+  useGetSubscriptionPlansQuery,
+  useGetCurrentSubscriptionQuery,
+  useCheckoutSubscriptionMutation,
+} = subscriptionApi;

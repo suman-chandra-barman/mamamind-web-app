@@ -2,7 +2,9 @@
 
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
+import { toast } from "react-toastify";
+
 import SectionHeading from "@/components/CommonComponents/SectionHeading";
 import {
   MotionReveal,
@@ -10,51 +12,57 @@ import {
   MotionStaggerItem,
 } from "@/components/CommonComponents/MotionReveal";
 import { cn } from "@/lib/utils";
+import {
+  type CheckoutRequest,
+  type SubscriptionPlan,
+  useCheckoutSubscriptionMutation,
+  useGetCurrentSubscriptionQuery,
+  useGetSubscriptionPlansQuery,
+} from "@/redux/features/subscription/subscriptionApi";
 
-interface PricingPlan {
-  name: string;
-  description: string;
-  price: number;
-  period: string;
-  cta: string;
-  isPopular?: boolean;
-  color: string;
-}
-
-const pricingPlans: PricingPlan[] = [
-  {
-    name: "Individual",
-    description: "1 Person",
-    price: 9,
-    period: "/month",
-    cta: "Get Started",
-    color: "bg-white border border-gray-200",
-  },
-  {
-    name: "Family",
-    description: "Up to 2 members",
-    price: 19,
-    period: "/month",
-    cta: "Start Free Trial",
-    isPopular: true,
-    color: "bg-[#2d2420]",
-  },
-  {
-    name: "Premium Family",
-    description: "Up to 5 members",
-    price: 34,
-    period: "/month",
-    cta: "Contact Us",
-    color: "bg-white border border-gray-200",
-  },
-];
+const getErrorMessage = (error: unknown, fallback: string) => {
+  const maybeError = error as { data?: { message?: string }; message?: string };
+  return maybeError.data?.message || maybeError.message || fallback;
+};
 
 const SimplePricingSection = () => {
-  const [isAnnual, setIsAnnual] = useState(false);
+  const { data: plansData, isLoading: isPlansLoading } =
+    useGetSubscriptionPlansQuery();
+  const { data: currentSubData } = useGetCurrentSubscriptionQuery();
+  const [checkoutSubscription, { isLoading: isCheckingOut }] =
+    useCheckoutSubscriptionMutation();
+  const [activePlanId, setActivePlanId] = useState<number | null>(null);
+
+  const plans: SubscriptionPlan[] = plansData?.data.plans ?? [];
+  const currentPlanId = currentSubData?.data.subscription?.plan?.id ?? null;
+
+  const handleCheckout = async (plan: SubscriptionPlan) => {
+    const body: CheckoutRequest = { plan_id: plan.id };
+    try {
+      setActivePlanId(plan.id);
+      const response = await checkoutSubscription(body).unwrap();
+      toast.success(
+        response.message || "Stripe checkout session created successfully",
+      );
+      if (response.data.checkout_url) {
+        window.open(response.data.checkout_url, "_blank", "noopener,noreferrer");
+      }
+    } catch (error: unknown) {
+      toast.error(getErrorMessage(error, "Failed to start checkout"));
+    } finally {
+      setActivePlanId(null);
+    }
+  };
+
+  // Middle plan is "popular"
+  const isPopular = (index: number) => index === 1;
+
+  const cardColor = (index: number) =>
+    isPopular(index) ? "bg-[#2d2420]" : "bg-white border border-gray-200";
 
   return (
-    <section className="w-full py-16 md:py-24 px-4 bg-transparent">
-      <div className="max-w-7xl mx-auto">
+    <section className="w-full bg-transparent px-4 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <MotionReveal>
           <SectionHeading
             semiTitle="SIMPLE PRICING"
@@ -64,123 +72,121 @@ const SimplePricingSection = () => {
           />
         </MotionReveal>
 
-        {/* Toggle */}
-        <MotionReveal delay={0.15}>
-          <div className="flex justify-center items-center gap-4 mt-8 md:mt-12">
-            <span
-              className={cn(
-                "text-base font-medium transition-colors",
-                isAnnual ? "text-secondary" : "text-primary",
-              )}
-            >
-              Monthly
-            </span>
-            <button
-              onClick={() => setIsAnnual(!isAnnual)}
-              className={cn(
-                "relative cursor-pointer inline-flex h-8 w-16 items-center rounded-full transition-colors",
-                isAnnual ? "bg-button-bg" : "bg-gray-300",
-              )}
-            >
-              <span
-                className={cn(
-                  "inline-block h-6 w-6 transform rounded-full bg-white transition-transform",
-                  isAnnual ? "translate-x-9" : "translate-x-1",
-                )}
-              />
-            </button>
-            <span
-              className={cn(
-                "text-base font-medium transition-colors",
-                isAnnual ? "text-primary" : "text-secondary",
-              )}
-            >
-              Annual
-            </span>
-          </div>
-        </MotionReveal>
-
         {/* Pricing Cards */}
-        <MotionStagger
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-16"
-          stagger={0.1}
-          delayChildren={0.2}
-        >
-          {pricingPlans.map((plan) => (
-            <MotionStaggerItem key={plan.name} className="relative h-full">
+        {isPlansLoading ? (
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:mt-16 md:gap-8">
+            {[1, 2, 3].map((i) => (
               <div
-                className={cn(
-                  "rounded-2xl p-8 md:p-10 h-full flex flex-col transition-transform duration-300 hover:-translate-y-1",
-                  plan.isPopular ? plan.color : plan.color,
-                  plan.isPopular
-                    ? "md:scale-105 shadow-2xl"
-                    : "hover:shadow-lg",
-                )}
-              >
-                {/* Popular Badge */}
-                {plan.isPopular && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-button-bg text-[#2d2420] px-4 py-1 rounded-full text-[13px] font-semibold">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
+                key={i}
+                className="h-72 animate-pulse rounded-2xl bg-primary/5"
+              />
+            ))}
+          </div>
+        ) : (
+          <MotionStagger
+            className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:mt-16 md:gap-8"
+            stagger={0.1}
+            delayChildren={0.2}
+          >
+            {plans.map((plan, index) => {
+              const popular = isPopular(index);
+              const isCurrent = plan.id === currentPlanId;
+              const isBusy = isCheckingOut && activePlanId === plan.id;
 
-                {/* Content */}
-                <div className="flex-grow">
-                  <h3
+              return (
+                <MotionStaggerItem key={plan.id} className="relative h-full">
+                  <div
                     className={cn(
-                      "text-xl md:text-2xl font-bold",
-                      plan.isPopular ? "text-button-bg" : "text-primary",
+                      "relative rounded-2xl p-8 md:p-10 h-full flex flex-col transition-transform duration-300 hover:-translate-y-1",
+                      cardColor(index),
+                      popular ? "md:scale-105 shadow-2xl" : "hover:shadow-lg",
                     )}
                   >
-                    {plan.name}
-                  </h3>
-                  <p
-                    className={cn(
-                      "text-sm md:text-base mt-2",
-                      plan.isPopular ? "text-gray-400" : "text-secondary",
+                    {/* Popular Badge */}
+                    {popular && (
+                      <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                        <span className="bg-button-bg text-[#2d2420] px-4 py-1 rounded-full text-[13px] font-semibold">
+                          Most Popular
+                        </span>
+                      </div>
                     )}
-                  >
-                    {plan.description}
-                  </p>
 
-                  {/* Price */}
-                  <div className="mt-6 md:mt-8">
-                    <span
+                    {/* Current Plan Badge */}
+                    {isCurrent && (
+                      <div className="absolute right-4 top-4">
+                        <span className="bg-[#1f8a7f] text-white px-3 py-0.5 rounded-full text-[11px] font-semibold">
+                          Current Plan
+                        </span>
+                      </div>
+                    )}
+
+                    {/* Content */}
+                    <div className="flex-grow">
+                      <h3
+                        className={cn(
+                          "text-xl md:text-2xl font-bold",
+                          popular ? "text-button-bg" : "text-primary",
+                        )}
+                      >
+                        {plan.name}
+                      </h3>
+                      <p
+                        className={cn(
+                          "text-sm md:text-base mt-2",
+                          popular ? "text-gray-400" : "text-secondary",
+                        )}
+                      >
+                        {plan.description}
+                      </p>
+
+                      {/* Price */}
+                      <div className="mt-6 md:mt-8">
+                        <span
+                          className={cn(
+                            "text-4xl md:text-5xl font-bold",
+                            popular ? "text-button-bg" : "text-primary",
+                          )}
+                        >
+                          ${Number(plan.price).toFixed(0)}
+                        </span>
+                        <span
+                          className={cn(
+                            "text-sm md:text-base ml-2",
+                            popular ? "text-gray-400" : "text-secondary",
+                          )}
+                        >
+                          /{plan.billing_cycle}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* CTA Button */}
+                    <button
+                      disabled={isCurrent || isBusy}
+                      onClick={() => !isCurrent && handleCheckout(plan)}
                       className={cn(
-                        "text-4xl md:text-5xl font-bold",
-                        plan.isPopular ? "text-button-bg" : "text-primary",
+                        "w-full py-1 md:py-2 rounded-full font-semibold text-base md:text-lg transition-all duration-300 mt-8",
+                        isCurrent
+                          ? "cursor-default border-2 border-[#1f8a7f]/50 text-[#1f8a7f] bg-[#1f8a7f]/10"
+                          : popular
+                            ? "cursor-pointer bg-button-bg text-[#2d2420] hover:bg-opacity-90!"
+                            : "cursor-pointer border-2 border-primary text-primary hover:bg-primary! hover:text-white!",
+                        (isCurrent || isBusy) &&
+                          "opacity-70 cursor-not-allowed",
                       )}
                     >
-                      ${plan.price}
-                    </span>
-                    <span
-                      className={cn(
-                        "text-sm md:text-base ml-2",
-                        plan.isPopular ? "text-gray-400" : "text-secondary",
-                      )}
-                    >
-                      {plan.period}
-                    </span>
+                      {isBusy
+                        ? "Preparing..."
+                        : isCurrent
+                          ? "Current Plan"
+                          : "Buy Now"}
+                    </button>
                   </div>
-                </div>
-
-                {/* CTA Button */}
-                <button
-                  className={cn(
-                    "w-full py-1 cursor-pointer md:py-2 rounded-full font-semibold text-base md:text-lg transition-all duration-300 mt-8",
-                    plan.isPopular
-                      ? "bg-button-bg text-[#2d2420] hover:bg-opacity-90!"
-                      : "border-2 border-primary text-primary hover:bg-primary! hover:text-white!",
-                  )}
-                >
-                  {plan.cta}
-                </button>
-              </div>
-            </MotionStaggerItem>
-          ))}
-        </MotionStagger>
+                </MotionStaggerItem>
+              );
+            })}
+          </MotionStagger>
+        )}
       </div>
     </section>
   );
