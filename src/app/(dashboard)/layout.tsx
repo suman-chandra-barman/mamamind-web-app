@@ -1,3 +1,4 @@
+import AuthGate from "@/components/CommonComponents/AuthGate";
 import DashboardHeader from "@/components/CommonComponents/DashboardHeader";
 import { Metadata } from "next";
 
@@ -11,7 +12,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-screen flex-col bg-secondary-background">
       <DashboardHeader />
-      <main className="grow">{children}</main>
+      <main className="grow">
+        <AuthGate>{children}</AuthGate>
+      </main>
     </div>
   );
 };

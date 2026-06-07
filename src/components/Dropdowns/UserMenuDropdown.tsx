@@ -93,14 +93,7 @@ const UserMenuDropdown = ({ user, onLogoutClick }: UserMenuDropdownProps) => {
           >
             Dashboard
           </Link>
-          <Link
-            href="/settings"
-            className="block rounded-xl px-3 py-2 font-medium transition hover:bg-[#f7f1e7]"
-            role="menuitem"
-            onClick={() => setOpen(false)}
-          >
-            Settings
-          </Link>
+          
           <div className="my-1 h-px bg-[#eadbc6]" />
           <button
             type="button"
