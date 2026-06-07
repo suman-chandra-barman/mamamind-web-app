@@ -19,7 +19,7 @@ interface AuthGateProps {
  *
  * - If the user IS authenticated → children render immediately on mount with
  *   NO flash of unauthorized API calls.
- * - If the user is NOT authenticated → they are redirected to /login.
+ * - If the user is NOT authenticated → they are redirected to /signin.
  *
  * The `isMounted` guard exists purely to skip the server-render pass where
  * localStorage doesn't exist, preventing a React hydration mismatch.
@@ -40,7 +40,7 @@ export default function AuthGate({ children }: AuthGateProps) {
 
   // Client is ready but no token found in store or localStorage
   if (!token) {
-    router.replace("/login");
+    router.replace("/signin");
     return null;
   }
 
