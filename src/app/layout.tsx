@@ -5,6 +5,7 @@ import { Google_Sans } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import StoreProvider from "@/redux/StoreProvider";
+import AuthInitializer from "@/components/CommonComponents/AuthInitializer";
 
 const googleSans = Google_Sans({
   variable: "--font-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-background w-full mx-auto"
       >
         <StoreProvider>
+          <AuthInitializer />
           <ToastContainer />
           {children}
         </StoreProvider>

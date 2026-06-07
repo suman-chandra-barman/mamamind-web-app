@@ -93,7 +93,7 @@ const UserMenuDropdown = ({ user, onLogoutClick }: UserMenuDropdownProps) => {
           >
             Dashboard
           </Link>
-          
+
           <div className="my-1 h-px bg-[#eadbc6]" />
           <button
             type="button"
