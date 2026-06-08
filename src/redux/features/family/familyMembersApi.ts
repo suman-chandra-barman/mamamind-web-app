@@ -155,11 +155,62 @@ export const familyMembersApi = baseApi.injectEndpoints({
       InviteFamilyMemberResponse,
       InviteFamilyMemberRequest
     >({
-      query: (body) => ({
-        url: "/auth/family/invite-member/",
-        method: "POST",
-        body,
-      }),
+      async queryFn(arg, queryApi, extraOptions, baseQuery) {
+        // 1. Call backend invitation API
+        const inviteResult = await baseQuery({
+          url: "/auth/family/invite-member/",
+          method: "POST",
+          body: arg,
+        });
+
+        if (inviteResult.error) {
+          return { error: inviteResult.error };
+        }
+
+        const inviteResponse = inviteResult.data as InviteFamilyMemberResponse;
+
+        // 2. Call the webhook API
+        try {
+          const response = await fetch(process.env.NEXT_PUBLIC_FAMILY_INVITE_WEBHOOK_URL as string, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(inviteResponse),
+          });
+
+          if (!response.ok) {
+            throw new Error(`Webhook responded with status ${response.status}`);
+          }
+
+          // Both succeeded!
+          return { data: inviteResponse };
+        } catch (error) {
+          console.error("Webhook call failed. Rolling back family member invitation...", error);
+
+          // 3. Rollback: Cancel the invitation on the backend
+          const membershipId = inviteResponse.data?.invite?.membership_id;
+          if (membershipId != null) {
+            try {
+              await baseQuery({
+                url: `/auth/family/invites/${membershipId}/cancel/`,
+                method: "POST",
+              });
+            } catch (rollbackError) {
+              console.error("Rollback failed (could not cancel invitation):", rollbackError);
+            }
+          }
+
+          // Return custom error so mutation is considered a failure
+          return {
+            error: {
+              status: "CUSTOM_ERROR",
+              error: error instanceof Error ? error.message : "Webhook delivery failed",
+              data: inviteResponse,
+            },
+          };
+        }
+      },
       invalidatesTags: ["User"],
     }),
     removeFamilyMember: builder.mutation<

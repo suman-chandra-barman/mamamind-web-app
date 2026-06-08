@@ -22,6 +22,7 @@ import {
   useRemoveFamilyMemberMutation,
   useResendInviteMutation,
 } from "@/redux/features/family/familyMembersApi";
+import { useAppSelector } from "@/redux/hooks";
 
 type MemberRole = "Account Owner" | "Partner" | "Child";
 
@@ -99,6 +100,7 @@ const FamilyMembersPage = () => {
   const [isInviteOpen, setIsInviteOpen] = useState(false);
   const [memberToRemove, setMemberToRemove] = useState<Member | null>(null);
   const [memberToRemoveId, setMemberToRemoveId] = useState<number | null>(null);
+  const user = useAppSelector((state) => state.auth.user);
 
   const [inviteFamilyMember, { isLoading: isInviting }] =
     useInviteFamilyMemberMutation();
@@ -137,12 +139,13 @@ const FamilyMembersPage = () => {
     try {
       const response = await inviteFamilyMember(values).unwrap();
       toast.success(response.message || "Family member invited successfully");
-    } catch (error) {
-      toast.error(
-        error instanceof Error
-          ? error.message
-          : "Failed to invite family member",
-      );
+    } catch (error: any) {
+      const errorMessage =
+        error?.error ||
+        error?.data?.message ||
+        error?.message ||
+        "Failed to invite family member";
+      toast.error(errorMessage);
     }
   };
 
@@ -197,13 +200,17 @@ const FamilyMembersPage = () => {
               Manage who has access to your shared Mamamind bot
             </p>
           </div>
-          <Button
-            className="h-10 rounded-full bg-button-bg px-5 text-sm font-medium text-white hover:bg-button-bg/90"
-            onClick={() => setIsInviteOpen(true)}
-            disabled={isInviting}
-          >
-            {isInviting ? "Sending..." : "+ Invite Member"}
-          </Button>
+          {user?.role === "family_owner" && (
+            <Button
+              className="h-10 rounded-full bg-button-bg px-5 text-sm font-medium text-white hover:bg-button-bg/90"
+              onClick={() => setIsInviteOpen(true)}
+              disabled={isInviting}
+            >
+              {isInviting ? "Sending..." : "+ Invite Member"}
+            </Button>
+          )
+
+          }
         </div>
 
         <div className="mt-6 rounded-2xl border border-button-bg/20 bg-white/70 px-5 py-4 shadow-[0_14px_30px_rgba(44,36,32,0.08)]">
@@ -234,11 +241,10 @@ const FamilyMembersPage = () => {
               activeMembers.map((member, index) => (
                 <div
                   key={member.id}
-                  className={`flex flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-5 ${
-                    index !== activeMembers.length - 1
+                  className={`flex flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-5 ${index !== activeMembers.length - 1
                       ? "border-b border-button-bg/15"
                       : ""
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     <Avatar className="h-10 w-10">
@@ -313,11 +319,10 @@ const FamilyMembersPage = () => {
               pendingInvites.map((invite, index) => (
                 <div
                   key={invite.id}
-                  className={`flex flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-5 ${
-                    index !== pendingInvites.length - 1
+                  className={`flex flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-5 ${index !== pendingInvites.length - 1
                       ? "border-b border-button-bg/15"
                       : ""
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-3">
                     <Avatar className="h-10 w-10">
