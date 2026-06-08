@@ -108,6 +108,40 @@ export type RemoveMemberResponse = {
   };
 };
 
+export type AcceptInviteRequest = {
+  invite_token: string;
+  email: string;
+  password: string;
+  confirm_password: string;
+};
+
+export type AcceptInviteResponseData = {
+  user: {
+    id: number;
+    full_name: string;
+    email: string;
+    whatsapp_number: string;
+    role: string;
+    is_email_verified: boolean;
+    family: {
+      id: number;
+      name: string;
+      relation: string;
+      member_status: string;
+    };
+  };
+  tokens: {
+    access: string;
+    refresh: string;
+  };
+};
+
+export type AcceptInviteResponse = {
+  success: boolean;
+  message: string;
+  data: AcceptInviteResponseData;
+};
+
 export const familyMembersApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     getFamilyMembers: builder.query<FamilyMembersResponse, void>({
@@ -158,6 +192,13 @@ export const familyMembersApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["User"],
     }),
+    acceptInvite: builder.mutation<AcceptInviteResponse, AcceptInviteRequest>({
+      query: (body) => ({
+        url: "/auth/family/accept-invite/",
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
@@ -167,4 +208,5 @@ export const {
   useRemoveFamilyMemberMutation,
   useResendInviteMutation,
   useCancelInviteMutation,
+  useAcceptInviteMutation,
 } = familyMembersApi;
