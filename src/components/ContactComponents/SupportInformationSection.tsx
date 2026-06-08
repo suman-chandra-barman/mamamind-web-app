@@ -14,14 +14,12 @@ const SupportCard = ({
   title,
   description,
   contact,
-  actionText,
   delay = 0,
 }: {
   icon: any;
   title: string;
   description: string;
   contact: string;
-  actionText: string;
   delay?: number;
 }) => {
   return (
@@ -39,9 +37,6 @@ const SupportCard = ({
         <p className="text-primary font-medium text-sm md:text-[15px] mb-3">
           {contact}
         </p>
-        <button className="text-button-bg cursor-pointer text-start text-xs md:text-sm font-medium hover:opacity-80 transition-opacity">
-          {actionText}
-        </button>
       </div>
     </MotionReveal>
   );
@@ -55,7 +50,6 @@ const SupportInformationSection = () => {
       description:
         "For general enquiries, billing questions, and account help.",
       contact: "hello@mamamind.ai",
-      actionText: "Send an email  →",
       delay: 0,
     },
     {
@@ -64,7 +58,6 @@ const SupportInformationSection = () => {
       description:
         "Get help directly on WhatsApp — the platform you already use.",
       contact: "+44 7700 900 123",
-      actionText: "Message us  →",
       delay: 0.1,
     },
     {
@@ -72,7 +65,6 @@ const SupportInformationSection = () => {
       title: "Response Times",
       description: "We aim to reply to all enquiries within one business day.",
       contact: "Mon-Fri, 9am-6pm GMT",
-      actionText: "",
       delay: 0.2,
     },
   ];
