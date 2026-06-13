@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Check, Crown, Sparkles } from "lucide-react";
+import { Check, Crown } from "lucide-react";
 import { toast } from "react-toastify";
 
 import SubscriptionPageSkeleton from "@/components/Skeletons/SubscriptionPageSkeleton";
@@ -57,19 +57,6 @@ const SubscriptionPage = () => {
       plans.find((plan) => plan.is_current) ?? plans[1] ?? plans[0] ?? null
     );
   }, [plans]);
-
-  const upgradePlan = useMemo(() => {
-    if (!currentPlan) return plans[0] ?? null;
-
-    const currentPrice = Number(currentPlan.price);
-    return (
-      plans.find(
-        (plan) => !plan.is_current && Number(plan.price) > currentPrice,
-      ) ??
-      plans.find((plan) => !plan.is_current) ??
-      null
-    );
-  }, [currentPlan, plans]);
 
   const handleCheckout = async (plan: SubscriptionPlan) => {
     const body: CheckoutRequest = { plan_id: plan.id };
