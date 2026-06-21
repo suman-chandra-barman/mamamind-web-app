@@ -38,10 +38,10 @@ const getBadgeTone = (plan: SubscriptionPlan) => {
   }
 
   if (plan.code === "premium_family") {
-    return "bg-[#372b24] text-white";
+    return "bg-[#2b1f23] text-white";
   }
 
-  return "bg-[#f4ead8] text-[#6f5f4a]";
+  return "bg-[#fdecee] text-[#766467]";
 };
 
 const SubscriptionPage = () => {
@@ -107,19 +107,19 @@ const SubscriptionPage = () => {
           ) : null}
         </div>
 
-        <section className="mt-6 rounded-[1.75rem] border border-[#f0e2cf] bg-white px-6 py-6 shadow-[0_18px_40px_rgba(45,39,35,0.08)] sm:px-7">
+        <section className="mt-6 rounded-[1.75rem] border border-[#f3d8dc] bg-white px-6 py-6 shadow-[0_18px_40px_rgba(43,27,30,0.08)] sm:px-7">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
-              <p className="text-sm text-[#8b7d6c]">Current Plan</p>
+              <p className="text-sm text-[#766467]">Current Plan</p>
               <div className="mt-2 flex flex-wrap items-center gap-3">
-                <h2 className="text-3xl font-semibold text-[#2f2723]">
+                <h2 className="text-3xl font-semibold text-[#1e1113]">
                   {currentPlan?.name ?? "No active plan"}
                 </h2>
                 <span className="rounded-full bg-[#1f8a7f] px-3 py-1 text-xs font-semibold text-white">
                   Active
                 </span>
               </div>
-              <p className="mt-2 text-sm text-[#8b7d6c]">
+              <p className="mt-2 text-sm text-[#766467]">
                 {currentPlan
                   ? `${formatPrice(currentPlan.price, currentPlan.currency, currentPlan.billing_cycle_display.toLowerCase())} · Up to ${currentPlan.member_limit} member${currentPlan.member_limit === 1 ? "" : "s"}`
                   : "Choose a plan to unlock access for your family."}
@@ -140,8 +140,8 @@ const SubscriptionPage = () => {
               const isCurrent = plan.is_current;
               const isBusy = isCheckingOut && activePlanId === plan.id;
               const cardTone = isCurrent
-                ? "border-button-bg/60 bg-[#2f2622] text-[#f4e7cc] shadow-[0_24px_50px_rgba(45,39,35,0.22)]"
-                : "border-[#f0e2cf] bg-white text-[#2f2723] shadow-[0_18px_40px_rgba(45,39,35,0.08)]";
+                ? "border-button-bg/60 bg-[#2b1f23] text-[#f9ecef] shadow-[0_24px_50px_rgba(43,27,30,0.22)]"
+                : "border-[#f3d8dc] bg-white text-[#1e1113] shadow-[0_18px_40px_rgba(43,27,30,0.08)]";
 
               return (
                 <article
@@ -152,7 +152,7 @@ const SubscriptionPage = () => {
                   )}
                 >
                   {isCurrent ? (
-                    <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-button-bg px-4 py-1 text-[11px] font-semibold text-white shadow-[0_8px_16px_rgba(175,141,78,0.25)]">
+                    <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 rounded-full bg-button-bg px-4 py-1 text-[11px] font-semibold text-white shadow-[0_8px_16px_rgba(219,74,109,0.25)]">
                       Current Plan
                     </div>
                   ) : null}
@@ -162,7 +162,7 @@ const SubscriptionPage = () => {
                       <h4
                         className={cn(
                           "text-xl font-semibold",
-                          isCurrent ? "text-white" : "text-[#2f2723]",
+                          isCurrent ? "text-white" : "text-[#1e1113]",
                         )}
                       >
                         {plan.name}
@@ -170,7 +170,7 @@ const SubscriptionPage = () => {
                       <p
                         className={cn(
                           "mt-2 text-sm",
-                          isCurrent ? "text-[#dbc79c]" : "text-[#8b7d6c]",
+                          isCurrent ? "text-[#ec8ca3]" : "text-[#766467]",
                         )}
                       >
                         {plan.description}
@@ -190,7 +190,7 @@ const SubscriptionPage = () => {
                     <span
                       className={cn(
                         "text-4xl font-semibold leading-none",
-                        isCurrent ? "text-button-bg" : "text-[#2f2723]",
+                        isCurrent ? "text-button-bg" : "text-[#1e1113]",
                       )}
                     >
                       {Number(plan.price).toFixed(0)}
@@ -198,7 +198,7 @@ const SubscriptionPage = () => {
                     <span
                       className={cn(
                         "pb-1 text-sm",
-                        isCurrent ? "text-[#dbc79c]" : "text-[#8b7d6c]",
+                        isCurrent ? "text-[#ec8ca3]" : "text-[#766467]",
                       )}
                     >
                       /{plan.billing_cycle}
@@ -208,7 +208,7 @@ const SubscriptionPage = () => {
                   <p
                     className={cn(
                       "mt-2 text-sm",
-                      isCurrent ? "text-[#dbc79c]" : "text-[#8b7d6c]",
+                      isCurrent ? "text-[#ec8ca3]" : "text-[#766467]",
                     )}
                   >
                     Up to {plan.member_limit} member
@@ -227,7 +227,7 @@ const SubscriptionPage = () => {
                         <span
                           className={cn(
                             "text-sm",
-                            isCurrent ? "text-[#dbc79c]" : "text-[#75685b]",
+                             isCurrent ? "text-[#ec8ca3]" : "text-[#766467]",
                           )}
                         >
                           {feature}
@@ -241,8 +241,8 @@ const SubscriptionPage = () => {
                     className={cn(
                       "mt-6 h-11 w-full rounded-full px-5 text-sm font-medium transition",
                       isCurrent
-                        ? "cursor-default bg-[#d7bd83] text-white hover:bg-[#d7bd83]"
-                        : "bg-button-bg text-white shadow-[0_14px_24px_rgba(175,141,78,0.25)] hover:bg-button-bg/90",
+                        ? "cursor-default bg-[#e57390] text-white hover:bg-[#e57390]"
+                        : "bg-button-bg text-white shadow-[0_14px_24px_rgba(219,74,109,0.25)] hover:bg-button-bg/90",
                     )}
                     disabled={isCurrent || isBusy}
                     onClick={() => handleCheckout(plan)}

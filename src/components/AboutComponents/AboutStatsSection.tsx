@@ -28,7 +28,7 @@ const AboutStatsSection = () => {
                 <p className="text-4xl font-bold tracking-tight text-button-bg md:text-[42px]">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-xs text-[#b9aa95] md:text-sm">
+                <p className="mt-2 text-xs text-[#cfb0b6] md:text-sm">
                   {stat.label}
                 </p>
               </MotionReveal>

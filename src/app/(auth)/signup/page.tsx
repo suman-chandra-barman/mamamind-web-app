@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /** @format */
 "use client";
-import Image from "next/image";
 import Link from "next/link";
+import AuthLogoHeader from "@/components/CommonComponents/AuthLogoHeader";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -51,20 +51,9 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#E9EFF3] bg-opacity-80">
+    <div className="min-h-screen flex items-center justify-center bg-secondary-background bg-opacity-80">
       <div className="bg-white rounded-lg shadow-md w-full max-w-md p-8">
-        <div className="flex flex-col items-center mb-6">
-          <Image
-            src="/logo.png"
-            alt="Gafbi Health Care"
-            width={80}
-            height={80}
-            className="object-cover mb-2"
-          />
-          <h1 className="text-2xl font-bold text-center text-button-bg">
-            Mamamind
-          </h1>
-        </div>
+        <AuthLogoHeader />
         <h2 className="text-lg font-bold text-button-bg mb-1">
           Create Account
         </h2>
@@ -114,7 +103,7 @@ export default function RegisterPage() {
           />
           <Button
             type="submit"
-            className="h-10 rounded-full bg-button-bg text-[15px] font-medium text-white hover:bg-[#9f8046] cursor-pointer"
+            className="h-10 rounded-full bg-button-bg text-[15px] font-medium text-white hover:bg-[#c53556] cursor-pointer"
             disabled={isLoading}
           >
             {isLoading ? "Creating Account..." : "Create Account"}

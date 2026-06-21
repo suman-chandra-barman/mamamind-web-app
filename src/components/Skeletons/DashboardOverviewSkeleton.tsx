@@ -9,7 +9,7 @@ const DashboardOverviewSkeleton = () => {
         {Array.from({ length: 3 }).map((_, i) => (
           <div
             key={i}
-            className="rounded-3xl border border-[#ede2cf] bg-white px-6 py-5 shadow-[0_12px_30px_rgba(46,39,35,0.08)]"
+            className="rounded-3xl border border-[#f3d8dc] bg-white px-6 py-5 shadow-[0_12px_30px_rgba(43,27,30,0.08)]"
           >
             <Skeleton className="h-3 w-28 rounded-full" />
             <div className="mt-3">
@@ -24,11 +24,11 @@ const DashboardOverviewSkeleton = () => {
 
       <section className="mt-10">
         <h3 className="sr-only">Upcoming Reminders</h3>
-        <div className="mt-4 overflow-hidden rounded-3xl border border-[#ede2cf] bg-white shadow-[0_12px_30px_rgba(46,39,35,0.08)]">
+        <div className="mt-4 overflow-hidden rounded-3xl border border-[#f3d8dc] bg-white shadow-[0_12px_30px_rgba(43,27,30,0.08)]">
           {Array.from({ length: 3 }).map((_, index) => (
             <div
               key={index}
-              className={`flex items-center gap-4 px-6 py-4 ${index === 0 ? "" : "border-t border-[#f1e9dc]"}`}
+              className={`flex items-center gap-4 px-6 py-4 ${index === 0 ? "" : "border-t border-[#f8e6e9]"}`}
             >
               <Skeleton className="h-6 w-20 rounded-full" />
               <div className="flex-1">
@@ -44,11 +44,11 @@ const DashboardOverviewSkeleton = () => {
 
       <section className="mt-10">
         <h3 className="sr-only">Family Members</h3>
-        <div className="mt-4 overflow-hidden rounded-3xl border border-[#ede2cf] bg-white shadow-[0_12px_30px_rgba(46,39,35,0.08)]">
+        <div className="mt-4 overflow-hidden rounded-3xl border border-[#f3d8dc] bg-white shadow-[0_12px_30px_rgba(43,27,30,0.08)]">
           {Array.from({ length: 4 }).map((_, index) => (
             <div
               key={index}
-              className={`flex items-center justify-between gap-4 px-6 py-4 ${index === 0 ? "" : "border-t border-[#f1e9dc]"}`}
+              className={`flex items-center justify-between gap-4 px-6 py-4 ${index === 0 ? "" : "border-t border-[#f8e6e9]"}`}
             >
               <div className="flex items-center gap-4">
                 <Skeleton className="h-10 w-10 rounded-full" />

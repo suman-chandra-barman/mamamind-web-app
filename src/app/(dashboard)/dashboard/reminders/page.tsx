@@ -109,20 +109,20 @@ const ReminderPage = () => {
 
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-      <section className="rounded-[2rem] border border-[#ede2cf] bg-[linear-gradient(180deg,#fffdfa_0%,#fff8ef_100%)] px-5 py-6 shadow-[0_18px_50px_rgba(46,39,35,0.08)] sm:px-7">
+      <section className="rounded-[2rem] border border-[#f3d8dc] bg-[linear-gradient(180deg,#fff8f9_0%,#fdecee_100%)] px-5 py-6 shadow-[0_18px_50px_rgba(43,27,30,0.08)] sm:px-7">
         <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-3xl font-semibold tracking-tight text-[#2f2723] sm:text-4xl">
+            <p className="text-3xl font-semibold tracking-tight text-[#1e1113] sm:text-4xl">
               Reminders
             </p>
-            <p className="mt-2 text-sm text-[#8b7d6c]">
+            <p className="mt-2 text-sm text-[#766467]">
               {stats?.total ?? 0} total · {stats?.completed ?? 0} completed
             </p>
           </div>
 
           <Button
             type="button"
-            className="h-11 rounded-full bg-button-bg px-5 text-sm font-medium text-white shadow-[0_14px_24px_rgba(175,141,78,0.25)] hover:bg-button-bg/90"
+            className="h-11 rounded-full bg-button-bg px-5 text-sm font-medium text-white shadow-[0_14px_24px_rgba(219,74,109,0.25)] hover:bg-button-bg/90"
             onClick={() => setOpen(true)}
           >
             <Plus className="h-4 w-4" />
@@ -138,16 +138,16 @@ const ReminderPage = () => {
             return (
               <div
                 key={card.key}
-                className="rounded-[1.6rem] border border-[#f0e4d2] bg-white/90 px-5 py-4 shadow-[0_8px_18px_rgba(46,39,35,0.05)]"
+                className="rounded-[1.6rem] border border-[#f3d8dc] bg-white/90 px-5 py-4 shadow-[0_8px_18px_rgba(43,27,30,0.05)]"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-3xl font-semibold text-[#2f2723]">
+                    <p className="text-3xl font-semibold text-[#1e1113]">
                       {value}
                     </p>
-                    <p className="mt-1 text-sm text-[#8b7d6c]">{card.label}</p>
+                    <p className="mt-1 text-sm text-[#766467]">{card.label}</p>
                   </div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#f7efe1] text-button-bg">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#fdecee] text-button-bg">
                     <Icon className="h-5 w-5" />
                   </div>
                 </div>
@@ -165,7 +165,7 @@ const ReminderPage = () => {
                 key={filter.value}
                 type="button"
                 onClick={() => setActiveFilter(filter.value)}
-                className={`h-10 rounded-full px-4 text-sm font-medium transition ${active ? "bg-button-bg text-white shadow-[0_10px_18px_rgba(175,141,78,0.24)]" : "bg-white text-[#7f7265] shadow-[0_6px_16px_rgba(46,39,35,0.05)] hover:bg-[#f9f3e8]"}`}
+                className={`h-10 rounded-full px-4 text-sm font-medium transition ${active ? "bg-button-bg text-white shadow-[0_10px_18px_rgba(219,74,109,0.24)]" : "bg-white text-[#766467] shadow-[0_6px_16px_rgba(43,27,30,0.05)] hover:bg-[#fff1f3]"}`}
               >
                 {filter.label}
               </button>
@@ -174,27 +174,27 @@ const ReminderPage = () => {
         </div>
       </section>
 
-      <section className="mt-6 overflow-hidden rounded-[2rem] border border-[#ede2cf] bg-white shadow-[0_18px_50px_rgba(46,39,35,0.08)]">
-        <div className="flex items-center justify-between gap-3 border-b border-[#f2e7d9] px-5 py-4 sm:px-6">
+      <section className="mt-6 overflow-hidden rounded-[2rem] border border-[#f3d8dc] bg-white shadow-[0_18px_50px_rgba(43,27,30,0.08)]">
+        <div className="flex items-center justify-between gap-3 border-b border-[#f3d8dc] px-5 py-4 sm:px-6">
           <div>
-            <p className="text-lg font-semibold text-[#2f2723]">
+            <p className="text-lg font-semibold text-[#1e1113]">
               All reminders
             </p>
-            <p className="text-sm text-[#8b7d6c]">
+            <p className="text-sm text-[#766467]">
               {reminders.length} reminder{reminders.length === 1 ? "" : "s"}
             </p>
           </div>
           {isFetching ? (
-            <span className="text-sm text-[#8b7d6c]">Refreshing...</span>
+            <span className="text-sm text-[#766467]">Refreshing...</span>
           ) : null}
         </div>
 
         {reminders.length === 0 ? (
           <div className="px-6 py-16 text-center">
-            <p className="text-lg font-semibold text-[#2f2723]">
+            <p className="text-lg font-semibold text-[#1e1113]">
               No reminders found
             </p>
-            <p className="mt-2 text-sm text-[#8b7d6c]">
+            <p className="mt-2 text-sm text-[#766467]">
               Try another filter or create a new reminder.
             </p>
             <Button
@@ -215,11 +215,11 @@ const ReminderPage = () => {
               return (
                 <article
                   key={reminder.id}
-                  className={`flex flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:gap-5 sm:px-6 ${index === 0 ? "" : "border-t border-[#f2e7d9]"}`}
+                  className={`flex flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:gap-5 sm:px-6 ${index === 0 ? "" : "border-t border-[#f3d8dc]"}`}
                 >
                   <div className="flex items-start gap-4 sm:min-w-45">
                     <span
-                      className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${reminder.is_completed ? "border-[#cdb17a] bg-[#d8c08e] text-white" : "border-[#d9c4a8] bg-transparent"}`}
+                      className={`mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${reminder.is_completed ? "border-[#e57390] bg-[#db4a6d] text-white" : "border-[#f3d8dc] bg-transparent"}`}
                     >
                       {reminder.is_completed ? (
                         <CheckCircle2 className="h-3.5 w-3.5" />
@@ -230,11 +230,11 @@ const ReminderPage = () => {
 
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded-full bg-[#f7efe1] px-3 py-1 text-xs font-semibold text-[#9a8560]">
+                        <span className="rounded-full bg-[#fdecee] px-3 py-1 text-xs font-semibold text-[#db4a6d]">
                           {formatReminderDate(reminder.reminder_date)}
                         </span>
                         <span
-                          className={`rounded-full px-3 py-1 text-xs font-semibold ${reminder.is_completed ? "bg-emerald-100 text-emerald-700" : reminder.is_overdue ? "bg-rose-100 text-rose-700" : "bg-[#f1eadf] text-[#7e6d5a]"}`}
+                          className={`rounded-full px-3 py-1 text-xs font-semibold ${reminder.is_completed ? "bg-emerald-100 text-emerald-700" : reminder.is_overdue ? "bg-rose-100 text-rose-700" : "bg-[#fdecee] text-[#766467]"}`}
                         >
                           {statusLabel}
                         </span>
@@ -243,17 +243,17 @@ const ReminderPage = () => {
                   </div>
 
                   <div className="min-w-0 flex-1">
-                    <h3 className="truncate text-base font-semibold text-[#2f2723] sm:text-lg">
+                    <h3 className="truncate text-base font-semibold text-[#1e1113] sm:text-lg">
                       {reminder.title}
                     </h3>
-                    <p className="mt-1 text-sm text-[#8b7d6c]">
+                    <p className="mt-1 text-sm text-[#766467]">
                       {ownerLabel} · {timeLabel || "All day"} · {recurringLabel}
                     </p>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2 sm:justify-end">
                     <span
-                      className={`rounded-full px-3 py-2 text-xs font-semibold ${reminder.visibility === "private" ? "bg-[#25211e] text-white" : "bg-[#e4e1dd] text-[#6c6660]"}`}
+                      className={`rounded-full px-3 py-2 text-xs font-semibold ${reminder.visibility === "private" ? "bg-[#2b1f23] text-white" : "bg-[#fdecee] text-[#766467]"}`}
                     >
                       {reminder.visibility_display}
                     </span>

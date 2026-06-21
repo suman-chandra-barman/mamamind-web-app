@@ -58,7 +58,7 @@ const SimplePricingSection = () => {
   const isPopular = (index: number) => index === 1;
 
   const cardColor = (index: number) =>
-    isPopular(index) ? "bg-[#2d2420]" : "bg-white border border-gray-200";
+    isPopular(index) ? "bg-tertiary-background" : "bg-white border border-gray-200";
 
   return (
     <section className="w-full bg-transparent px-4 py-16 md:py-24">
@@ -105,7 +105,7 @@ const SimplePricingSection = () => {
                     {/* Popular Badge */}
                     {popular && (
                       <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                        <span className="bg-button-bg text-[#2d2420] px-4 py-1 rounded-full text-[13px] font-semibold">
+                        <span className="bg-button-bg text-[#2b1f23] px-4 py-1 rounded-full text-[13px] font-semibold">
                           Most Popular
                         </span>
                       </div>
@@ -169,7 +169,7 @@ const SimplePricingSection = () => {
                         isCurrent
                           ? "cursor-default border-2 border-[#1f8a7f]/50 text-[#1f8a7f] bg-[#1f8a7f]/10"
                           : popular
-                            ? "cursor-pointer bg-button-bg text-[#2d2420] hover:bg-opacity-90!"
+                            ? "cursor-pointer bg-button-bg text-[#2b1f23] hover:bg-opacity-90!"
                             : "cursor-pointer border-2 border-primary text-primary hover:bg-primary! hover:text-white!",
                         (isCurrent || isBusy) &&
                           "opacity-70 cursor-not-allowed",

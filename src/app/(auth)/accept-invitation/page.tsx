@@ -23,7 +23,7 @@ const CSS = `
 
   /* left panel gradient */
   .inv-left-panel {
-    background: linear-gradient(160deg, #1a0e05 0%, #3b200a 40%, #6b3a10 75%, #9b6130 100%);
+    background: linear-gradient(160deg, #12090a 0%, #2b1b1e 40%, #3e2428 75%, #563137 100%);
     position: relative;
     overflow: hidden;
   }
@@ -36,13 +36,13 @@ const CSS = `
     position: absolute; border-radius: 50%;
     filter: blur(80px); pointer-events: none;
   }
-  .inv-orb-1 { width: 320px; height: 320px; background: rgba(201,164,90,0.25); top: -80px; right: -80px; }
-  .inv-orb-2 { width: 260px; height: 260px; background: rgba(139,100,48,0.3); bottom: -60px; left: -60px; }
-  .inv-orb-3 { width: 180px; height: 180px; background: rgba(255,200,100,0.12); top: 40%; left: 20%; }
+  .inv-orb-1 { width: 320px; height: 320px; background: rgba(219,74,109,0.25); top: -80px; right: -80px; }
+  .inv-orb-2 { width: 260px; height: 260px; background: rgba(168,46,74,0.3); bottom: -60px; left: -60px; }
+  .inv-orb-3 { width: 180px; height: 180px; background: rgba(219,74,109,0.12); top: 40%; left: 20%; }
 
   /* right panel */
   .inv-right-panel {
-    background: #faf8f5;
+    background: #fff8f9;
     position: relative;
     overflow: hidden;
   }
@@ -51,7 +51,7 @@ const CSS = `
     position: absolute;
     top: -120px; right: -120px;
     width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(201,164,90,0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(219,74,109,0.08) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
   }
@@ -59,7 +59,7 @@ const CSS = `
   /* glass card */
   .inv-glass {
     background: rgba(255,255,255,0.9);
-    border: 1px solid rgba(201,164,90,0.15);
+    border: 1px solid rgba(219,74,109,0.15);
     box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -68,25 +68,25 @@ const CSS = `
   /* input */
   .inv-input {
     width: 100%;
-    border: 1.5px solid #e5e0d8;
+    border: 1.5px solid #f3d8dc;
     border-radius: 12px;
     padding: 12px 16px;
     font-size: 14px;
     background: #fff;
-    color: #1a1208;
+    color: #1e1113;
     outline: none;
     transition: all 0.2s;
     font-family: 'Inter', sans-serif;
   }
-  .inv-input::placeholder { color: #b5aba0; }
-  .inv-input:hover:not(:disabled) { border-color: #c9a45a; }
-  .inv-input:focus { border-color: #c9a45a; box-shadow: 0 0 0 3px rgba(201,164,90,0.15); }
-  .inv-input:disabled { opacity: 0.55; cursor: not-allowed; background: #f5f2ee; }
+  .inv-input::placeholder { color: #cfb0b6; }
+  .inv-input:hover:not(:disabled) { border-color: #db4a6d; }
+  .inv-input:focus { border-color: #db4a6d; box-shadow: 0 0 0 3px rgba(219,74,109,0.15); }
+  .inv-input:disabled { opacity: 0.55; cursor: not-allowed; background: #fdecee; }
   .inv-input.has-error { border-color: #ef4444; box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
 
   /* button */
   .inv-btn-primary {
-    background: linear-gradient(135deg, #c9a45a 0%, #8b6430 100%);
+    background: linear-gradient(135deg, #db4a6d 0%, #a82e4a 100%);
     color: white;
     border: none;
     border-radius: 12px;
@@ -98,7 +98,7 @@ const CSS = `
     width: 100%;
     display: flex; align-items: center; justify-content: center; gap: 8px;
     transition: all 0.2s;
-    box-shadow: 0 4px 16px rgba(139,100,48,0.35);
+    box-shadow: 0 4px 16px rgba(168,46,74,0.35);
     position: relative; overflow: hidden;
   }
   .inv-btn-primary::before {
@@ -108,7 +108,7 @@ const CSS = `
   }
   .inv-btn-primary:hover:not(:disabled) {
     transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(139,100,48,0.45);
+    box-shadow: 0 8px 24px rgba(168,46,74,0.45);
   }
   .inv-btn-primary:active:not(:disabled) { transform: translateY(0); }
   .inv-btn-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
@@ -147,19 +147,19 @@ const CSS = `
 
   /* step dots */
   .inv-step { width: 8px; height: 8px; border-radius: 50%; transition: all 0.3s; }
-  .inv-step.active { width: 24px; border-radius: 4px; background: #c9a45a; }
-  .inv-step.done { background: #c9a45a; }
-  .inv-step.pending { background: #e5ddd3; }
+  .inv-step.active { width: 24px; border-radius: 4px; background: #db4a6d; }
+  .inv-step.done { background: #db4a6d; }
+  .inv-step.pending { background: #f3d8dc; }
 
   /* token chip */
   .inv-token-chip {
     font-family: 'Courier New', monospace;
     font-size: 11px;
-    background: rgba(201,164,90,0.1);
-    border: 1px solid rgba(201,164,90,0.25);
+    background: rgba(219,74,109,0.1);
+    border: 1px solid rgba(219,74,109,0.25);
     border-radius: 6px;
     padding: 2px 8px;
-    color: #8b6430;
+    color: #db4a6d;
     letter-spacing: 0.03em;
   }
 `;
@@ -259,7 +259,7 @@ function PasswordInput({
   const [show, setShow] = useState(false);
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-      <label htmlFor={id} style={{ fontSize: 13, fontWeight: 600, color: "#4a3728" }}>
+      <label htmlFor={id} style={{ fontSize: 13, fontWeight: 600, color: "#4a3e40" }}>
         {label}
       </label>
       <div style={{ position: "relative" }}>
@@ -283,11 +283,11 @@ function PasswordInput({
           style={{
             position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)",
             background: "none", border: "none", cursor: "pointer",
-            color: "#a89078", display: "flex", padding: 4,
+            color: "#766467", display: "flex", padding: 4,
             transition: "color 0.2s",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#c9a45a")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "#a89078")}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "#db4a6d")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "#766467")}
         >
           {show ? <IconEyeOff /> : <IconEye />}
         </button>
@@ -315,7 +315,7 @@ function StrengthBar({ value }: { value: string }) {
             key={i}
             style={{
               flex: 1, height: 3, borderRadius: 2,
-              background: i <= s ? STRENGTH_COLORS[s] : "#e5ddd3",
+              background: i <= s ? STRENGTH_COLORS[s] : "#f3d8dc",
               transition: "background 0.3s",
             }}
           />
@@ -338,16 +338,16 @@ function FeatureItem({ icon, title, desc }: { icon: React.ReactNode; title: stri
   return (
     <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
       <div style={{
-        width: 40, height: 40, borderRadius: 10, background: "rgba(201,164,90,0.18)",
-        border: "1px solid rgba(201,164,90,0.3)",
+        width: 40, height: 40, borderRadius: 10, background: "rgba(219,74,109,0.18)",
+        border: "1px solid rgba(219,74,109,0.3)",
         display: "flex", alignItems: "center", justifyContent: "center",
-        color: "#c9a45a", flexShrink: 0,
+        color: "#db4a6d", flexShrink: 0,
       }}>
         {icon}
       </div>
       <div>
-        <p style={{ fontSize: 14, fontWeight: 600, color: "#f5e8d4", marginBottom: 2 }}>{title}</p>
-        <p style={{ fontSize: 12, color: "rgba(245,232,212,0.6)", lineHeight: 1.5 }}>{desc}</p>
+        <p style={{ fontSize: 14, fontWeight: 600, color: "#f9ecef", marginBottom: 2 }}>{title}</p>
+        <p style={{ fontSize: 12, color: "rgba(249,236,239,0.6)", lineHeight: 1.5 }}>{desc}</p>
       </div>
     </div>
   );
@@ -377,10 +377,10 @@ function SuccessScreen({ onRedirect }: { onRedirect: () => void }) {
         <IconCheckCircleFill />
       </div>
       <div>
-        <h3 style={{ fontSize: 22, fontWeight: 800, color: "#1a1208", marginBottom: 8 }}>
+        <h3 style={{ fontSize: 22, fontWeight: 800, color: "#1e1113", marginBottom: 8 }}>
           Welcome to the Family! 🎉
         </h3>
-        <p style={{ fontSize: 14, color: "#8b7355", lineHeight: 1.6 }}>
+        <p style={{ fontSize: 14, color: "#766467", lineHeight: 1.6 }}>
           Your account has been activated successfully.<br />
           Redirecting you to sign in…
         </p>
@@ -390,7 +390,7 @@ function SuccessScreen({ onRedirect }: { onRedirect: () => void }) {
           <div
             key={i}
             style={{
-              width: 8, height: 8, borderRadius: "50%", background: "#c9a45a",
+              width: 8, height: 8, borderRadius: "50%", background: "#db4a6d",
               animation: `inv-spin 1.2s ease-in-out ${i * 0.2}s infinite alternate`,
               opacity: 0.4 + i * 0.2,
             }}
@@ -500,15 +500,15 @@ function AcceptInvitationForm() {
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: "auto", position: "relative" }}>
             <div style={{
               width: 48, height: 48, borderRadius: 14,
-              background: "rgba(201,164,90,0.2)",
-              border: "1px solid rgba(201,164,90,0.4)",
+              background: "rgba(219,74,109,0.2)",
+              border: "1px solid rgba(219,74,109,0.4)",
               display: "flex", alignItems: "center", justifyContent: "center",
             }}>
               <Image src="/logo.png" alt="Mamamind" width={28} height={28} className="object-contain" />
             </div>
             <div>
-              <p style={{ fontSize: 18, fontWeight: 800, color: "#f5e8d4", letterSpacing: "-0.02em" }}>Mamamind</p>
-              <p style={{ fontSize: 11, color: "rgba(245,232,212,0.55)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
+              <p style={{ fontSize: 18, fontWeight: 800, color: "#f9ecef", letterSpacing: "-0.02em" }}>Mamamind</p>
+              <p style={{ fontSize: 11, color: "rgba(249,236,239,0.55)", fontWeight: 500, letterSpacing: "0.06em", textTransform: "uppercase" }}>
                 Family Health
               </p>
             </div>
@@ -525,7 +525,7 @@ function AcceptInvitationForm() {
               width: "fit-content",
             }}>
               <span style={{ color: "#25d366" }}><IconWhatsApp /></span>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(245,232,212,0.9)" }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(249,236,239,0.9)" }}>
                 Invited via WhatsApp
               </span>
             </div>
@@ -535,14 +535,14 @@ function AcceptInvitationForm() {
               <h1 style={{
                 fontSize: "clamp(28px, 3.5vw, 40px)",
                 fontWeight: 900,
-                color: "#f5e8d4",
+                color: "#f9ecef",
                 lineHeight: 1.15,
                 letterSpacing: "-0.03em",
                 marginBottom: 16,
               }}>
                 You&apos;ve been<br />
                 <span style={{
-                  background: "linear-gradient(90deg, #c9a45a, #e8c87a, #c9a45a)",
+                  background: "linear-gradient(90deg, #db4a6d, #ec8ca3, #db4a6d)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -552,7 +552,7 @@ function AcceptInvitationForm() {
                 <br />
                 a family.
               </h1>
-              <p style={{ fontSize: 15, color: "rgba(245,232,212,0.65)", lineHeight: 1.65, maxWidth: 340 }}>
+              <p style={{ fontSize: 15, color: "rgba(249,236,239,0.65)", lineHeight: 1.65, maxWidth: 340 }}>
                 Complete your profile to access your family&apos;s health monitoring dashboard and stay connected.
               </p>
             </div>
@@ -585,7 +585,7 @@ function AcceptInvitationForm() {
                 className={`inv-step ${i < step ? "done" : i === step ? "active" : "pending"}`}
               />
             ))}
-            <span style={{ fontSize: 12, color: "rgba(245,232,212,0.45)", marginLeft: 4 }}>
+            <span style={{ fontSize: 12, color: "rgba(249,236,239,0.45)", marginLeft: 4 }}>
               Step {step} of 2
             </span>
           </div>
@@ -616,24 +616,24 @@ function AcceptInvitationForm() {
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
                     <div style={{
                       width: 36, height: 36, borderRadius: 10,
-                      background: "linear-gradient(135deg, #c9a45a20, #8b643020)",
-                      border: "1px solid rgba(201,164,90,0.2)",
+                      background: "linear-gradient(135deg, rgba(219,74,109,0.1), rgba(168,46,74,0.1))",
+                      border: "1px solid rgba(219,74,109,0.2)",
                       display: "flex", alignItems: "center", justifyContent: "center",
-                      color: "#c9a45a",
+                      color: "#db4a6d",
                     }}>
                       <IconUsers />
                     </div>
                     <div>
-                      <p style={{ fontSize: 12, fontWeight: 600, color: "#c9a45a", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                      <p style={{ fontSize: 12, fontWeight: 600, color: "#db4a6d", letterSpacing: "0.08em", textTransform: "uppercase" }}>
                         Family Invitation
                       </p>
                     </div>
                   </div>
 
-                  <h2 style={{ fontSize: 26, fontWeight: 800, color: "#1a1208", letterSpacing: "-0.02em", marginBottom: 8 }}>
+                  <h2 style={{ fontSize: 26, fontWeight: 800, color: "#1e1113", letterSpacing: "-0.02em", marginBottom: 8 }}>
                     Activate your account
                   </h2>
-                  <p style={{ fontSize: 14, color: "#8b7355", lineHeight: 1.6 }}>
+                  <p style={{ fontSize: 14, color: "#766467", lineHeight: 1.6 }}>
                     Enter your email and set a password to complete your family membership.
                   </p>
                 </div>
@@ -642,7 +642,7 @@ function AcceptInvitationForm() {
                 <div className="inv-fade-up inv-fade-up-d1" style={{ marginBottom: 8 }}>
                   <label
                     htmlFor="inv-token"
-                    style={{ fontSize: 13, fontWeight: 600, color: "#4a3728", display: "block", marginBottom: 6 }}
+                    style={{ fontSize: 13, fontWeight: 600, color: "#4a3e40", display: "block", marginBottom: 6 }}
                   >
                     Invitation Token
                   </label>
@@ -687,7 +687,7 @@ function AcceptInvitationForm() {
                   )}
 
                   {/* helper hint */}
-                  <p style={{ fontSize: 11, color: "#a89078", marginTop: 6, lineHeight: 1.5 }}>
+                  <p style={{ fontSize: 11, color: "#766467", marginTop: 6, lineHeight: 1.5 }}>
                     Copy the token from your WhatsApp invitation message and paste it above.
                   </p>
                 </div>
@@ -697,7 +697,7 @@ function AcceptInvitationForm() {
 
                   {/* email */}
                   <div className="inv-fade-up inv-fade-up-d2" style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                    <label htmlFor="inv-email" style={{ fontSize: 13, fontWeight: 600, color: "#4a3728" }}>
+                    <label htmlFor="inv-email" style={{ fontSize: 13, fontWeight: 600, color: "#4a3e40" }}>
                       Email Address
                     </label>
                     <input
@@ -802,12 +802,12 @@ export default function AcceptInvitationPage() {
         <div style={{
           minHeight: "100vh", display: "flex", alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #1a0e05, #3b200a)",
+          background: "linear-gradient(135deg, #12090a, #2b1b1e)",
         }}>
           <div style={{
             width: 44, height: 44, borderRadius: "50%",
-            border: "3px solid rgba(201,164,90,0.25)",
-            borderTopColor: "#c9a45a",
+            border: "3px solid rgba(219,74,109,0.25)",
+            borderTopColor: "#db4a6d",
             animation: "inv-spin 0.7s linear infinite",
           }} />
           <style>{`@keyframes inv-spin { to { transform: rotate(360deg); } }`}</style>

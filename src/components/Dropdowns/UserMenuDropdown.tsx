@@ -62,7 +62,7 @@ const UserMenuDropdown = ({ user, onLogoutClick }: UserMenuDropdownProps) => {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className="flex h-11 w-11 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-[#e6d7c1] bg-white/80 shadow-[0_10px_18px_rgba(45,39,35,0.12)] transition hover:bg-white"
+        className="flex h-11 w-11 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-[#f3d8dc] bg-white/80 shadow-[0_10px_18px_rgba(43,27,30,0.12)] transition hover:bg-white"
         aria-haspopup="menu"
         aria-expanded={open}
       >
@@ -83,18 +83,18 @@ const UserMenuDropdown = ({ user, onLogoutClick }: UserMenuDropdownProps) => {
       {open ? (
         <div
           role="menu"
-          className="absolute right-0 mt-3 w-52 rounded-2xl border border-[#eadbc6] bg-white p-2 text-sm text-primary shadow-[0_20px_40px_rgba(45,39,35,0.18)]"
+          className="absolute right-0 mt-3 w-52 rounded-2xl border border-[#f3d8dc] bg-white p-2 text-sm text-primary shadow-[0_20px_40px_rgba(43,27,30,0.18)]"
         >
           <Link
             href="/dashboard"
-            className="block rounded-xl px-3 py-2 font-medium transition hover:bg-[#f7f1e7]"
+            className="block rounded-xl px-3 py-2 font-medium transition hover:bg-[#fdecee]"
             role="menuitem"
             onClick={() => setOpen(false)}
           >
             Dashboard
           </Link>
 
-          <div className="my-1 h-px bg-[#eadbc6]" />
+          <div className="my-1 h-px bg-[#f3d8dc]" />
           <button
             type="button"
             className="cursor-pointer block w-full rounded-xl px-3 py-2 text-left font-medium text-red-600 transition hover:bg-red-50"

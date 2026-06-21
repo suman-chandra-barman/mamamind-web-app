@@ -21,38 +21,38 @@ const DashboardPage = () => {
   return (
     <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
       <section className="grid gap-6 md:grid-cols-3">
-        <div className="rounded-3xl border border-[#ede2cf] bg-white px-6 py-5 shadow-[0_12px_30px_rgba(46,39,35,0.08)]">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#9c8d7a]">
+        <div className="rounded-3xl border border-[#f3d8dc] bg-white px-6 py-5 shadow-[0_12px_30px_rgba(43,27,30,0.08)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#766467]">
             Active Plan
           </p>
-          <h2 className="mt-2 text-2xl font-semibold text-[#2f2723]">
+          <h2 className="mt-2 text-2xl font-semibold text-[#1e1113]">
             {plan?.name ?? "—"}
           </h2>
-          <p className="mt-1 text-sm text-[#8b7d6c]">
+          <p className="mt-1 text-sm text-[#766467]">
             {plan?.renews_at ? `Renews ${plan.renews_at}` : "—"}
           </p>
         </div>
 
-        <div className="rounded-3xl border border-[#ede2cf] bg-white px-6 py-5 shadow-[0_12px_30px_rgba(46,39,35,0.08)]">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#9c8d7a]">
+        <div className="rounded-3xl border border-[#f3d8dc] bg-white px-6 py-5 shadow-[0_12px_30px_rgba(43,27,30,0.08)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#766467]">
             Family Members
           </p>
-          <h2 className="mt-2 text-2xl font-semibold text-[#2f2723]">
+          <h2 className="mt-2 text-2xl font-semibold text-[#1e1113]">
             {familyStats.connected ?? 0} connected
           </h2>
-          <p className="mt-1 text-sm text-[#8b7d6c]">
+          <p className="mt-1 text-sm text-[#766467]">
             {familyStats.pending_invites ?? 0} pending invite
           </p>
         </div>
 
-        <div className="rounded-3xl border border-[#ede2cf] bg-white px-6 py-5 shadow-[0_12px_30px_rgba(46,39,35,0.08)]">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#9c8d7a]">
+        <div className="rounded-3xl border border-[#f3d8dc] bg-white px-6 py-5 shadow-[0_12px_30px_rgba(43,27,30,0.08)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#766467]">
             Next Reminder
           </p>
-          <h2 className="mt-2 text-2xl font-semibold text-[#2f2723]">
+          <h2 className="mt-2 text-2xl font-semibold text-[#1e1113]">
             {nextReminder?.title ?? "—"}
           </h2>
-          <p className="mt-1 text-sm text-[#8b7d6c]">
+          <p className="mt-1 text-sm text-[#766467]">
             {nextReminder?.date
               ? `${nextReminder.date} ${nextReminder.time ?? ""}`
               : "—"}
@@ -61,23 +61,23 @@ const DashboardPage = () => {
       </section>
 
       <section className="mt-10">
-        <h3 className="text-lg font-semibold text-[#2f2723]">
+        <h3 className="text-lg font-semibold text-[#1e1113]">
           Upcoming Reminders
         </h3>
-        <div className="mt-4 overflow-hidden rounded-3xl border border-[#ede2cf] bg-white shadow-[0_12px_30px_rgba(46,39,35,0.08)]">
+        <div className="mt-4 overflow-hidden rounded-3xl border border-[#f3d8dc] bg-white shadow-[0_12px_30px_rgba(43,27,30,0.08)]">
           {upcoming.map((reminder: any, index: number) => (
             <div
               key={reminder.id || index}
-              className={`flex items-center gap-4 px-6 py-4 ${index === 0 ? "" : "border-t border-[#f1e9dc]"}`}
+              className={`flex items-center gap-4 px-6 py-4 ${index === 0 ? "" : "border-t border-[#f8e6e9]"}`}
             >
-              <span className="rounded-full bg-[#f4ede1] px-3 py-1 text-xs font-semibold text-[#8b7d6c]">
+              <span className="rounded-full bg-[#fdecee] px-3 py-1 text-xs font-semibold text-[#766467]">
                 {reminder.date}
               </span>
               <div>
-                <p className="text-sm font-semibold text-[#2f2723]">
+                <p className="text-sm font-semibold text-[#1e1113]">
                   {reminder.title}
                 </p>
-                <p className="text-xs text-[#8b7d6c]">{`${reminder.owner_name ?? ""} · ${reminder.time ?? ""}`}</p>
+                <p className="text-xs text-[#766467]">{`${reminder.owner_name ?? ""} · ${reminder.time ?? ""}`}</p>
               </div>
             </div>
           ))}
@@ -85,22 +85,22 @@ const DashboardPage = () => {
       </section>
 
       <section className="mt-10">
-        <h3 className="text-lg font-semibold text-[#2f2723]">Family Members</h3>
-        <div className="mt-4 overflow-hidden rounded-3xl border border-[#ede2cf] bg-white shadow-[0_12px_30px_rgba(46,39,35,0.08)]">
+        <h3 className="text-lg font-semibold text-[#1e1113]">Family Members</h3>
+        <div className="mt-4 overflow-hidden rounded-3xl border border-[#f3d8dc] bg-white shadow-[0_12px_30px_rgba(43,27,30,0.08)]">
           {members.map((m: any, index: number) => (
             <div
               key={m.user_id || m.membership_id || index}
-              className={`flex items-center justify-between gap-4 px-6 py-4 ${index === 0 ? "" : "border-t border-[#f1e9dc]"}`}
+              className={`flex items-center justify-between gap-4 px-6 py-4 ${index === 0 ? "" : "border-t border-[#f8e6e9]"}`}
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#f4ede1] text-sm font-semibold text-[#8b7d6c]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#fdecee] text-sm font-semibold text-[#766467]">
                   {m.initials}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-[#2f2723]">
+                  <p className="text-sm font-semibold text-[#1e1113]">
                     {m.full_name}
                   </p>
-                  <p className="text-xs text-[#8b7d6c]">
+                  <p className="text-xs text-[#766467]">
                     {m.relation_display ?? m.role}
                   </p>
                 </div>

@@ -59,29 +59,23 @@ const Footer = () => {
           <p className="text-[11px] font-semibold tracking-[0.18em] text-button-bg uppercase md:text-[13px]">
             Get Started Today
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-[#EDE0CC] md:text-[40px]">
+          <h2 className="text-3xl font-bold tracking-tight text-[#f9ecef] md:text-[40px]">
             Your family deserves a smarter way to stay connected.
           </h2>
         </div>
 
         <div className="mt-16 grid gap-10 border-b border-white/10 pb-10 sm:grid-cols-2 lg:grid-cols-5">
-          <div className="text-center sm:text-left">
-            <Link
-              href="/"
-              className="flex items-center justify-center gap-2 sm:justify-start"
-            >
+          <div className="text-left">
+            <Link href="/">
               <Image
                 src="/logo.png"
                 alt="logo"
-                width={24}
-                height={24}
-                className="h-6 w-6 rounded-sm bg-white object-contain"
+                width={120}
+                height={120}
+                className="h-18 w-auto object-contain"
               />
-              <span className="text-2xl font-semibold text-[#e8ddcc]">
-                Mamamind
-              </span>
             </Link>
-            <p className="mx-auto mt-4 max-w-56 text-sm leading-7 text-[#ab9f90] sm:mx-0">
+            <p className="mt-4 max-w-56 text-sm leading-7 text-[#cfb0b6]">
               Your family&apos;s personal AI assistant always on WhatsApp.
             </p>
           </div>
@@ -97,7 +91,7 @@ const Footer = () => {
           <FooterLinksSection title="Connect" links={socialLinks} />
         </div>
 
-        <p className="py-4 md:py-6 text-center text-xs text-[#9f9182]">
+        <p className="py-4 md:py-6 text-center text-xs text-[#cfb0b6]">
           © {new Date().getFullYear()} Mamamind. All rights reserved.
         </p>
       </div>
@@ -110,19 +104,18 @@ export default Footer;
 const FooterLinksSection = ({ title, links }: FooterLinksSectionProps) => {
   return (
     <div className="text-center sm:text-left">
-      <h3 className="text-xs font-semibold tracking-[0.14em] text-[#d8c49f] uppercase">
+      <h3 className="text-xs font-semibold tracking-[0.14em] text-[#e57390] uppercase">
         {title}
       </h3>
-      <ul className="mt-4 space-y-3 text-sm text-[#d1c4b4]">
+      <ul className="mt-4 space-y-3 text-sm text-[#cfb0b6]">
         {links.map(({ label, href, icon: Icon }) => (
           <li key={label}>
             <Link
               href={href}
-              className={`transition-colors hover:text-white ${
-                Icon
+              className={`transition-colors hover:text-white ${Icon
                   ? "flex items-center justify-center gap-2 sm:justify-start"
                   : ""
-              }`}
+                }`}
             >
               {Icon ? <Icon className="h-4 w-4" /> : null}
               {label}

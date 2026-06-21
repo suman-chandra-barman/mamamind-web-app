@@ -5,7 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 const ReminderPageSkeleton = () => {
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-      <section className="rounded-[2rem] border border-[#ede2cf] bg-white/90 px-5 py-6 shadow-[0_18px_50px_rgba(46,39,35,0.08)] sm:px-7">
+      <section className="rounded-[2rem] border border-[#f3d8dc] bg-white/90 px-5 py-6 shadow-[0_18px_50px_rgba(43,27,30,0.08)] sm:px-7">
         <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
           <div>
             <Skeleton className="h-9 w-44 rounded-xl" />
@@ -20,7 +20,7 @@ const ReminderPageSkeleton = () => {
           {Array.from({ length: 4 }).map((_, index) => (
             <div
               key={index}
-              className="rounded-[1.6rem] border border-[#f0e4d2] bg-[#fffdf9] px-5 py-4"
+              className="rounded-[1.6rem] border border-[#f3d8dc] bg-[#fff8f9] px-5 py-4"
             >
               <Skeleton className="h-9 w-10 rounded-xl" />
               <div className="mt-3">
@@ -37,11 +37,11 @@ const ReminderPageSkeleton = () => {
         </div>
       </section>
 
-      <section className="mt-6 overflow-hidden rounded-[2rem] border border-[#ede2cf] bg-white shadow-[0_18px_50px_rgba(46,39,35,0.08)]">
+      <section className="mt-6 overflow-hidden rounded-[2rem] border border-[#f3d8dc] bg-white shadow-[0_18px_50px_rgba(43,27,30,0.08)]">
         {Array.from({ length: 6 }).map((_, index) => (
           <div
             key={index}
-            className={`flex items-center gap-4 px-5 py-4 sm:px-6 ${index === 0 ? "" : "border-t border-[#f2e7d9]"}`}
+            className={`flex items-center gap-4 px-5 py-4 sm:px-6 ${index === 0 ? "" : "border-t border-[#f3d8dc]"}`}
           >
             <Skeleton className="h-5 w-5 rounded-full" />
             <Skeleton className="h-7 w-20 rounded-full" />

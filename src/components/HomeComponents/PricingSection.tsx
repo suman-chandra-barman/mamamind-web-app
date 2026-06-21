@@ -89,7 +89,7 @@ const PricingSection = () => {
                   <article
                     className={`relative rounded-2xl border p-7 transition-transform duration-300 hover:-translate-y-1 ${
                       isHighlight
-                        ? "border-button-bg bg-tertiary-background text-white shadow-[0_16px_36px_rgba(44,36,32,0.34)]"
+                        ? "border-button-bg bg-tertiary-background text-white shadow-[0_16px_36px_rgba(43,27,30,0.34)]"
                         : "border-button-bg/22 bg-card-bg text-primary"
                     }`}
                   >
@@ -142,7 +142,7 @@ const PricingSection = () => {
                           <Check className="h-4 w-4 shrink-0 text-button-bg" />
                           <span
                             className={
-                              isHighlight ? "text-[#EDE0CC]" : "text-secondary"
+                              isHighlight ? "text-[#f9ecef]" : "text-secondary"
                             }
                           >
                             {feature}
@@ -157,7 +157,7 @@ const PricingSection = () => {
                         isCurrent
                           ? "cursor-default border-[#1f8a7f]/40 bg-[#1f8a7f]/10 text-[#1f8a7f] hover:bg-[#1f8a7f]/10!"
                           : isHighlight
-                            ? "bg-button-bg text-white hover:bg-[#9f8046]!"
+                            ? "bg-button-bg text-white hover:bg-[#c53556]!"
                             : "border-primary/35 bg-transparent text-primary hover:bg-primary/5!"
                       }`}
                       disabled={isCurrent || isBusy}

@@ -96,24 +96,20 @@ const NavBar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#d8cab4] bg-secondary-background/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full border-b border-[#f3d8dc] bg-secondary-background/95 backdrop-blur-sm">
       <div className="mx-auto flex h-14 md:h-18 max-w-7xl items-center justify-between gap-2 px-4 sm:px-6 lg:px-8">
         {/* Desktop and tablet menu */}
-        <Link href="/" className="flex shrink-0 items-center gap-1">
+        <Link href="/">
           <Image
             src="/logo.png"
             alt="logo"
-            width={38}
-            height={38}
-            priority
-            className="h-9 w-9 object-contain"
+            width={120}
+            height={120}
+            className="w-full object-contain "
           />
-          <span className="text-base sm:text-lg md:text-xl lg:text-[22px] font-bold tracking-tight text-primary ">
-            Mamamind
-          </span>
         </Link>
 
-        <nav className="hidden items-center gap-2 rounded-full bg-white/55 px-2 py-1 shadow-[0_0_0_1px_rgba(141,117,89,0.12)] md:flex">
+        <nav className="hidden items-center gap-2 rounded-full bg-white/55 px-2 py-1 shadow-[0_0_0_1px_rgba(219,74,109,0.12)] md:flex">
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -139,7 +135,7 @@ const NavBar = () => {
           ) : (
             <Button
               asChild
-              className="h-10 rounded-full bg-button-bg px-6 text-[15px] font-medium text-white shadow-[0_8px_18px_rgba(175,141,78,0.28)] hover:bg-[#9f8046]!"
+              className="h-10 rounded-full bg-button-bg px-6 text-[15px] font-medium text-white shadow-[0_8px_18px_rgba(219,74,109,0.28)] hover:bg-[#c53556]!"
             >
               <Link href="/signin">Get Started</Link>
             </Button>
@@ -160,7 +156,7 @@ const NavBar = () => {
           </DialogTrigger>
           <DialogContent
             showCloseButton={false}
-            className="top-19 left-4 right-4 w-auto translate-x-0 translate-y-0 gap-0 rounded-[24px] border border-[#ddcfba] bg-[#f7f1e7] p-3 shadow-[0_20px_40px_rgba(45,39,35,0.14)] sm:left-auto sm:right-6 sm:w-90"
+            className="top-19 left-4 right-4 w-auto translate-x-0 translate-y-0 gap-0 rounded-[24px] border border-[#f3d8dc] bg-[#fdecee] p-3 shadow-[0_20px_40px_rgba(43,27,30,0.14)] sm:left-auto sm:right-6 sm:w-90"
           >
             <DialogTitle className="sr-only">Navigation menu</DialogTitle>
             <div className="flex flex-col gap-1">
@@ -198,7 +194,7 @@ const NavBar = () => {
               ) : (
                 <Button
                   asChild
-                  className="mt-2 h-10 rounded-2xl bg-button-bg text-[15px] font-medium text-white hover:bg-[#9f8046]"
+                  className="mt-2 h-10 rounded-2xl bg-button-bg text-[15px] font-medium text-white hover:bg-[#c53556]"
                 >
                   <Link href="/signin">Get Started</Link>
                 </Button>

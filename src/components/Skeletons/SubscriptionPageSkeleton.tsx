@@ -11,7 +11,7 @@ const SubscriptionPageSkeleton = () => {
           <Skeleton className="h-4 w-60 rounded-full" />
         </div>
 
-        <section className="mt-8 rounded-[1.75rem] border border-[#f0e2cf] bg-white px-6 py-6 shadow-[0_18px_40px_rgba(45,39,35,0.08)]">
+        <section className="mt-8 rounded-[1.75rem] border border-[#f3d8dc] bg-white px-6 py-6 shadow-[0_18px_40px_rgba(43,27,30,0.08)]">
           <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
             <div className="space-y-3">
               <Skeleton className="h-4 w-24 rounded-full" />
@@ -33,7 +33,7 @@ const SubscriptionPageSkeleton = () => {
             {Array.from({ length: 3 }).map((_, index) => (
               <div
                 key={index}
-                className="rounded-[1.75rem] border border-[#f0e2cf] bg-white px-5 py-6 shadow-[0_18px_40px_rgba(45,39,35,0.08)]"
+                className="rounded-[1.75rem] border border-[#f3d8dc] bg-white px-5 py-6 shadow-[0_18px_40px_rgba(43,27,30,0.08)]"
               >
                 <Skeleton className="h-5 w-32 rounded-full" />
                 <Skeleton className="mt-4 h-10 w-28 rounded-full" />

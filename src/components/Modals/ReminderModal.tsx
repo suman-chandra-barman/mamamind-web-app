@@ -74,7 +74,7 @@ const createInitialState = (): ReminderFormState => ({
 });
 
 const selectShellClassName =
-  "flex h-11 w-full appearance-none rounded-xl border border-[#e6d7c1] bg-white px-4 text-sm text-primary shadow-[0_1px_0_rgba(255,255,255,0.85)] outline-none transition focus:border-button-bg/60 focus:ring-3 focus:ring-button-bg/10 disabled:cursor-not-allowed disabled:opacity-50";
+  "flex h-11 w-full appearance-none rounded-xl border border-[#f3d8dc] bg-white px-4 text-sm text-primary shadow-[0_1px_0_rgba(255,255,255,0.85)] outline-none transition focus:border-button-bg/60 focus:ring-3 focus:ring-button-bg/10 disabled:cursor-not-allowed disabled:opacity-50";
 
 const ReminderModal = ({
   open,
@@ -108,7 +108,7 @@ const ReminderModal = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         showCloseButton={false}
-        className="max-h-[calc(100vh-2rem)] max-w-[92vw] overflow-y-auto rounded-[2rem] border border-[#eadbc6] bg-[#fbf7f1] p-0 shadow-[0_24px_60px_rgba(44,36,32,0.16)] sm:max-w-3xl"
+        className="max-h-[calc(100vh-2rem)] max-w-[92vw] overflow-y-auto rounded-[2rem] border border-[#f3d8dc] bg-[#fff8f9] p-0 shadow-[0_24px_60px_rgba(43,27,30,0.16)] sm:max-w-3xl"
       >
         <form onSubmit={handleSubmit} className="p-5 sm:p-7">
           <DialogHeader className="mb-5">
@@ -251,7 +251,7 @@ const ReminderModal = ({
             <Button
               type="button"
               variant="outline"
-              className="h-11 rounded-full border-[#e6d7c1] bg-white px-6 text-sm text-secondary hover:bg-[#f8f1e6]"
+              className="h-11 rounded-full border-[#f3d8dc] bg-white px-6 text-sm text-secondary hover:bg-[#fdecee]"
               onClick={() => onOpenChange(false)}
             >
               Cancel

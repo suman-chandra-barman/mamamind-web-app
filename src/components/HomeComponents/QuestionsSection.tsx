@@ -46,7 +46,7 @@ const QuestionsSection = () => {
             {faqs.map((faq) => (
               <MotionStaggerItem key={faq.id}>
                 <Collapsible className="border-b border-button-bg/20 py-2 md:py-3">
-                  <CollapsibleTrigger className="group flex w-full cursor-pointer items-center justify-between gap-4 py-2 text-left text-base font-medium text-[#2C2420] md:text-lg">
+                  <CollapsibleTrigger className="group flex w-full cursor-pointer items-center justify-between gap-4 py-2 text-left text-base font-medium text-primary md:text-lg">
                     <span className="font-bold">{faq.question}</span>
                     <ChevronDown className="h-4 w-4 shrink-0 text-button-bg transition-transform duration-200 group-data-[state=open]:rotate-180" />
                   </CollapsibleTrigger>

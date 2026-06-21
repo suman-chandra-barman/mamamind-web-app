@@ -114,7 +114,7 @@ export default function SettingsPage() {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <div className="flex flex-col items-center gap-3">
-          <Loader2 className="h-8 w-8 animate-spin text-amber-600" />
+          <Loader2 className="h-8 w-8 animate-spin text-button-bg" />
           <p className="text-sm text-zinc-500">Loading your profile…</p>
         </div>
       </div>
@@ -122,7 +122,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#fdf6ee] via-[#fff9f2] to-[#fef3e2] py-10 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-[#fff8f9] via-[#fff1f3] to-[#fdecee] py-10 px-4 sm:px-6 lg:px-8">
       {/* Page header */}
       <div className="mx-auto max-w-3xl">
         <div className="mb-8">
@@ -134,9 +134,9 @@ export default function SettingsPage() {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* ── Profile Card ── */}
-          <div className="overflow-hidden rounded-2xl border border-amber-100 bg-white shadow-sm">
+          <div className="overflow-hidden rounded-2xl border border-[#f3d8dc] bg-white shadow-sm">
             {/* Cover gradient */}
-            <div className="h-28 bg-gradient-to-r from-[#2f2723] via-[#4a3728] to-[#2f2723]" />
+            <div className="h-28 bg-gradient-to-r from-rose-900 via-rose-800 to-rose-900" />
 
             <div className="px-6 pb-6">
               {/* Avatar upload */}
@@ -148,7 +148,7 @@ export default function SettingsPage() {
                   onDragLeave={() => setIsDragging(false)}
                   onDrop={handleDrop}
                 >
-                  <div className={`relative h-24 w-24 rounded-full ring-4 ring-white shadow-lg overflow-hidden ${isDragging ? "ring-amber-400" : ""}`}>
+                  <div className={`relative h-24 w-24 rounded-full ring-4 ring-white shadow-lg overflow-hidden ${isDragging ? "ring-rose-500" : ""}`}>
                     {previewUrl ? (
                       <Image
                         src={previewUrl}
@@ -158,7 +158,7 @@ export default function SettingsPage() {
                         unoptimized
                       />
                     ) : (
-                      <div className="h-full w-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
+                      <div className="h-full w-full bg-gradient-to-br from-[#db4a6d] to-[#c53556] flex items-center justify-center">
                         <span className="text-2xl font-bold text-white">
                           {avatarInitials || <User className="h-8 w-8" />}
                         </span>
@@ -172,7 +172,7 @@ export default function SettingsPage() {
                   </div>
 
                   {/* Camera badge */}
-                  <div className="absolute bottom-0 right-0 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-amber-500 shadow-sm">
+                  <div className="absolute bottom-0 right-0 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-[#db4a6d] shadow-sm">
                     <Camera className="h-3.5 w-3.5 text-white" />
                   </div>
 
@@ -194,12 +194,12 @@ export default function SettingsPage() {
               </div>
 
               {selectedFile && (
-                <div className="mb-4 flex items-center gap-2 rounded-lg bg-amber-50 border border-amber-200 px-3 py-2 text-sm text-amber-700">
+                <div className="mb-4 flex items-center gap-2 rounded-lg bg-[#fff1f3] border border-[#f3d8dc] px-3 py-2 text-sm text-[#db4a6d]">
                   <AlertCircle className="h-4 w-4 shrink-0" />
                   New photo selected: <span className="font-medium">{selectedFile.name}</span>
                   <button
                     type="button"
-                    className="ml-auto text-amber-500 hover:text-amber-700 font-medium"
+                    className="ml-auto text-[#db4a6d] hover:text-[#c53556] font-medium"
                     onClick={() => {
                       setSelectedFile(null);
                       if (user?.profile_image_url) setPreviewUrl(user.profile_image_url);
@@ -235,7 +235,7 @@ export default function SettingsPage() {
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       placeholder="Your full name"
-                      className="w-full rounded-xl border border-zinc-200 bg-zinc-50 py-2.5 pl-9 pr-4 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none transition focus:border-amber-400 focus:bg-white focus:ring-2 focus:ring-amber-100"
+                      className="w-full rounded-xl border border-zinc-200 bg-zinc-50 py-2.5 pl-9 pr-4 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none transition focus:border-button-bg focus:bg-white focus:ring-2 focus:ring-button-bg/15"
                     />
                   </div>
                 </div>
@@ -271,7 +271,7 @@ export default function SettingsPage() {
                       value={whatsapp}
                       onChange={(e) => setWhatsapp(e.target.value)}
                       placeholder="+1 234 567 8900"
-                      className="w-full rounded-xl border border-zinc-200 bg-zinc-50 py-2.5 pl-9 pr-4 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none transition focus:border-amber-400 focus:bg-white focus:ring-2 focus:ring-amber-100"
+                      className="w-full rounded-xl border border-zinc-200 bg-zinc-50 py-2.5 pl-9 pr-4 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none transition focus:border-button-bg focus:bg-white focus:ring-2 focus:ring-button-bg/15"
                     />
                   </div>
                 </div>
@@ -280,15 +280,15 @@ export default function SettingsPage() {
           </div>
 
           {/* ── Account Info Card ── */}
-          <div className="rounded-2xl border border-amber-100 bg-white shadow-sm p-6">
+          <div className="rounded-2xl border border-[#f3d8dc] bg-white shadow-sm p-6">
             <h3 className="mb-4 text-sm font-semibold text-zinc-800 uppercase tracking-wider">
               Account Information
             </h3>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {/* Role */}
               <div className="flex items-center gap-3 rounded-xl bg-zinc-50 p-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-100">
-                  <Shield className="h-4 w-4 text-amber-600" />
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#fdecee]">
+                  <Shield className="h-4 w-4 text-[#db4a6d]" />
                 </div>
                 <div>
                   <p className="text-xs text-zinc-400 font-medium">Role</p>
@@ -328,8 +328,8 @@ export default function SettingsPage() {
               {/* Subscription */}
               {user?.subscription && (
                 <div className="flex items-center gap-3 rounded-xl bg-zinc-50 p-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-amber-100">
-                    <Crown className="h-4 w-4 text-amber-600" />
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#fdecee]">
+                    <Crown className="h-4 w-4 text-[#db4a6d]" />
                   </div>
                   <div>
                     <p className="text-xs text-zinc-400 font-medium">Subscription</p>
@@ -348,7 +348,7 @@ export default function SettingsPage() {
             <button
               type="submit"
               disabled={isSaving}
-              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#2f2723] to-[#4a3728] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:from-[#3d342e] hover:to-[#5a4438] hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed active:scale-[0.98]"
+              className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#db4a6d] to-[#c53556] px-6 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:from-[#c53556] hover:to-[#a82e4a] hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed active:scale-[0.98]"
             >
               {isSaving ? (
                 <Loader2 className="h-4 w-4 animate-spin" />

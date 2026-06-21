@@ -213,14 +213,14 @@ const FamilyMembersPage = () => {
           }
         </div>
 
-        <div className="mt-6 rounded-2xl border border-button-bg/20 bg-white/70 px-5 py-4 shadow-[0_14px_30px_rgba(44,36,32,0.08)]">
+        <div className="mt-6 rounded-2xl border border-[#f3d8dc] bg-white/70 px-5 py-4 shadow-[0_14px_30px_rgba(43,27,30,0.08)]">
           <div className="flex items-center justify-between text-xs text-secondary">
             <span>
               {usedSlots} / {totalSlots} members used
             </span>
             <span>{plan?.name ?? "Family Plan"}</span>
           </div>
-          <div className="mt-3 h-2 w-full rounded-full bg-[#eadbc8]">
+          <div className="mt-3 h-2 w-full rounded-full bg-[#f3d8dc]">
             <div
               className="h-2 rounded-full bg-button-bg transition-all"
               style={{ width: `${progressValue}%` }}
@@ -232,7 +232,7 @@ const FamilyMembersPage = () => {
           <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
             Active Members ({activeMembers.length})
           </h2>
-          <div className="mt-3 overflow-hidden rounded-2xl border border-button-bg/15 bg-white/80 shadow-[0_18px_40px_rgba(45,39,35,0.08)]">
+          <div className="mt-3 overflow-hidden rounded-2xl border border-[#f3d8dc] bg-white/80 shadow-[0_18px_40px_rgba(43,27,30,0.08)]">
             {activeMembers.length === 0 ? (
               <div className="px-4 py-8 text-sm text-secondary sm:px-5">
                 No active members found.
@@ -242,13 +242,13 @@ const FamilyMembersPage = () => {
                 <div
                   key={member.id}
                   className={`flex flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-5 ${index !== activeMembers.length - 1
-                      ? "border-b border-button-bg/15"
+                      ? "border-b border-[#f3d8dc]"
                       : ""
                     }`}
                 >
                   <div className="flex items-center gap-3">
                     <Avatar className="h-10 w-10">
-                      <AvatarFallback className="bg-[#f4e9d6] text-sm font-semibold text-primary">
+                      <AvatarFallback className="bg-[#fdecee] text-sm font-semibold text-primary">
                         {getInitials(member.name)}
                       </AvatarFallback>
                     </Avatar>
@@ -270,7 +270,7 @@ const FamilyMembersPage = () => {
                       <DropdownMenuTrigger asChild>
                         <button
                           type="button"
-                          className="flex h-8 w-8 items-center justify-center rounded-full border border-button-bg/20 bg-white text-secondary transition hover:bg-[#f8f1e7]"
+                          className="flex h-8 w-8 items-center justify-center rounded-full border border-[#f3d8dc] bg-white text-secondary transition hover:bg-[#fff1f3]"
                           aria-label="Member actions"
                         >
                           <MoreVertical className="h-4 w-4" />
@@ -310,7 +310,7 @@ const FamilyMembersPage = () => {
           <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
             Pending Invites ({pendingInvites.length})
           </h2>
-          <div className="mt-3 overflow-hidden rounded-2xl border border-button-bg/15 bg-white/80 shadow-[0_18px_40px_rgba(45,39,35,0.08)]">
+          <div className="mt-3 overflow-hidden rounded-2xl border border-[#f3d8dc] bg-white/80 shadow-[0_18px_40px_rgba(43,27,30,0.08)]">
             {pendingInvites.length === 0 ? (
               <div className="px-4 py-8 text-sm text-secondary sm:px-5">
                 No pending invites.
@@ -320,13 +320,13 @@ const FamilyMembersPage = () => {
                 <div
                   key={invite.id}
                   className={`flex flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-5 ${index !== pendingInvites.length - 1
-                      ? "border-b border-button-bg/15"
+                      ? "border-b border-[#f3d8dc]"
                       : ""
                     }`}
                 >
                   <div className="flex items-center gap-3">
                     <Avatar className="h-10 w-10">
-                      <AvatarFallback className="bg-[#f4e9d6] text-sm font-semibold text-primary">
+                      <AvatarFallback className="bg-[#fdecee] text-sm font-semibold text-primary">
                         {getInitials(invite.name)}
                       </AvatarFallback>
                     </Avatar>
@@ -348,7 +348,7 @@ const FamilyMembersPage = () => {
                       <DropdownMenuTrigger asChild>
                         <button
                           type="button"
-                          className="flex h-8 w-8 items-center justify-center rounded-full border border-button-bg/20 bg-white text-secondary transition hover:bg-[#f8f1e7]"
+                          className="flex h-8 w-8 items-center justify-center rounded-full border border-[#f3d8dc] bg-white text-secondary transition hover:bg-[#fff1f3]"
                           aria-label="Invite actions"
                         >
                           <MoreVertical className="h-4 w-4" />

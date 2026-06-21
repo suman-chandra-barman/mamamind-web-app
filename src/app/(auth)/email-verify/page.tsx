@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-import Image from "next/image";
+import AuthLogoHeader from "@/components/CommonComponents/AuthLogoHeader";
 import { useVerifyEmailMutation } from "@/redux/features/auth/authApi";
 import { useAppDispatch } from "@/redux/hooks";
 import { setCredentials } from "@/redux/features/auth/authSlice";
@@ -88,20 +88,9 @@ export default function EmailVerifyPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#E9EFF3] bg-opacity-80">
+    <div className="min-h-screen flex items-center justify-center bg-secondary-background bg-opacity-80">
       <div className="bg-white rounded-lg shadow-md w-full max-w-md p-8">
-        <div className="flex flex-col items-center mb-6">
-          <Image
-            src="/logo.png"
-            alt="Mamamind"
-            width={80}
-            height={80}
-            className="object-cover mb-2"
-          />
-          <h1 className="text-2xl font-bold text-center text-button-bg">
-            Mamamind
-          </h1>
-        </div>
+        <AuthLogoHeader />
         <h2 className="text-lg font-bold text-button-bg mb-1">
           Verify your email
         </h2>
@@ -132,7 +121,7 @@ export default function EmailVerifyPage() {
           </div>
           <button
             type="submit"
-            className="h-10 w-full rounded-full bg-button-bg text-[15px] font-medium text-white hover:bg-[#9f8046] cursor-pointer"
+            className="h-10 w-full rounded-full bg-button-bg text-[15px] font-medium text-white hover:bg-[#c53556] cursor-pointer"
             disabled={isLoading}
           >
             {isLoading ? "Verifying..." : "Verify"}

@@ -53,7 +53,7 @@ export default function DashboardHeader() {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[#e3d6c2] bg-[#2f2723] text-white">
+    <header className="sticky top-0 z-40 border-b border-[#f3d8dc] bg-[#2b1f23] text-white">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2">
@@ -97,7 +97,7 @@ export default function DashboardHeader() {
           </Link>
           <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>
-              <button className="flex items-center gap-3 rounded-full border border-amber-100 bg-white px-3 py-1 text-left shadow-sm cursor-pointer">
+              <button className="flex items-center gap-3 rounded-full border border-[#f3d8dc] bg-white px-3 py-1 text-left shadow-sm cursor-pointer">
                 <Avatar className="h-8 w-8">
                 <AvatarImage
                     src={`${process.env.NEXT_PUBLIC_BASE_URL}${user?.profile_image}`}
