@@ -1,3 +1,4 @@
+/** @format */
 "use client";
 
 import React from "react";
@@ -46,15 +47,15 @@ const PrivacyPolicyPage = () => {
   return (
     <main className="w-full">
       {/* Header Section */}
-      <section className="w-full bg-linear-to-b from-slate-50 to-white py-12 md:py-16 px-4 md:px-8">
+      <section className="w-full bg-secondary-background py-12 md:py-16 px-4 md:px-8">
         <div className="max-w-5xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
             Privacy Policy
           </h1>
-          <p className="text-sm text-gray-600 mb-4">
+          <p className="text-sm text-secondary mb-4">
             Last updated: 4 April 2025 • Effective date: 4 April 2025
           </p>
-          <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
+          <p className="text-secondary leading-relaxed max-w-3xl mx-auto">
             This Privacy Policy explains how MamaMind (&quot;we&quot;,
             &quot;our&quot;, or &quot;us&quot;) collects, uses, stores, and
             protects your personal data when you use the MamaMind service,
@@ -64,19 +65,19 @@ const PrivacyPolicyPage = () => {
       </section>
 
       {/* Feature Cards Section */}
-      <section className="w-full bg-white py-12 md:py-16 px-4 md:px-8">
+      <section className="w-full bg-background py-12 md:py-16 px-4 md:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featureCards.map((card, index) => (
               <div
                 key={index}
-                className="p-6 bg-linear-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-lg hover:shadow-lg transition-shadow"
+                className="p-6 bg-secondary-background border border-[#f3d8dc] rounded-2xl hover:shadow-[0_8px_24px_rgba(219,74,109,0.12)] transition-shadow"
               >
                 <div className="text-4xl mb-3 text-center">{card.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 text-center">
+                <h3 className="text-lg font-semibold text-primary mb-2 text-center">
                   {card.title}
                 </h3>
-                <p className="text-sm text-gray-700 text-center">
+                <p className="text-sm text-secondary text-center">
                   {card.description}
                 </p>
               </div>
@@ -86,24 +87,24 @@ const PrivacyPolicyPage = () => {
       </section>
 
       {/* Content Section */}
-      <section className="w-full bg-gray-50 py-12 md:py-16 px-4 md:px-8">
-        <div className="max-w-4xl mx-auto bg-white rounded-lg p-8 md:p-12 shadow-sm border border-gray-200">
+      <section className="w-full bg-secondary-background py-12 md:py-16 px-4 md:px-8">
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl p-8 md:p-12 shadow-[0_8px_32px_rgba(219,74,109,0.08)] border border-[#f3d8dc]">
           {/* Section 1: Who We Are */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               1. Who We Are
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-secondary leading-relaxed mb-4">
               MamaMind is a company dedicated to helping families manage their
               daily tasks and communications. We are committed to protecting
               your privacy and ensuring you have a positive experience on our
               platform.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-secondary leading-relaxed">
               Our Data Protection Officer can be contacted at:{" "}
               <a
                 href="mailto:privacy@mamamind.ai"
-                className="text-blue-600 hover:text-blue-700 underline"
+                className="text-button-bg hover:underline font-medium"
               >
                 privacy@mamamind.ai
               </a>
@@ -112,10 +113,10 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 2: What Personal Data We Collect */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               2. What Personal Data We Collect
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-secondary leading-relaxed mb-6">
               When you use MamaMind, we collect the following types of personal
               data:
             </p>
@@ -123,10 +124,10 @@ const PrivacyPolicyPage = () => {
             <div className="space-y-6">
               {/* 2.1 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-primary mb-3">
                   2.1 Account and Registration Data
                 </h3>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <ul className="list-disc list-inside text-secondary space-y-2">
                   <li>Full name</li>
                   <li>Email address</li>
                   <li>WhatsApp phone number</li>
@@ -142,10 +143,10 @@ const PrivacyPolicyPage = () => {
 
               {/* 2.2 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-primary mb-3">
                   2.2 Usage Data
                 </h3>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <ul className="list-disc list-inside text-secondary space-y-2">
                   <li>Messages you send to the MamaMind WhatsApp bot</li>
                   <li>Reminders, events, and tasks you create</li>
                   <li>
@@ -160,10 +161,10 @@ const PrivacyPolicyPage = () => {
 
               {/* 2.3 */}
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-primary mb-3">
                   2.3 Data We Do Not Collect
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-secondary">
                   We do not collect any special category data (such as health
                   information, racial or ethnic origin, political opinions,
                   religious beliefs, or biometric data) unless you explicitly
@@ -175,74 +176,74 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 3: How We Use Your Data */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               3. How We Use Your Data
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-secondary leading-relaxed mb-6">
               We use your personal data for the following purposes, each with a
               corresponding legal basis under UK GDPR:
             </p>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto rounded-xl border border-[#f3d8dc]">
               <table className="w-full border-collapse bg-white">
                 <thead>
-                  <tr className="bg-amber-50 border-b-2 border-amber-200">
-                    <th className="text-left p-4 font-semibold text-gray-900">
+                  <tr className="bg-secondary-background border-b-2 border-[#f3d8dc]">
+                    <th className="text-left p-4 font-semibold text-primary">
                       Purpose
                     </th>
-                    <th className="text-left p-4 font-semibold text-gray-900">
+                    <th className="text-left p-4 font-semibold text-primary">
                       Legal Basis
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="border-b border-gray-200">
-                    <td className="p-4 text-gray-700">
+                  <tr className="border-b border-[#f3d8dc]">
+                    <td className="p-4 text-secondary">
                       Providing the MamaMind AI assistant service
                     </td>
-                    <td className="p-4 text-blue-600">
+                    <td className="p-4 text-button-bg font-medium">
                       Performance of contract
                     </td>
                   </tr>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <td className="p-4 text-gray-700">
+                  <tr className="border-b border-[#f3d8dc] bg-secondary-background/40">
+                    <td className="p-4 text-secondary">
                       Processing payments and managing subscriptions
                     </td>
-                    <td className="p-4 text-blue-600">
+                    <td className="p-4 text-button-bg font-medium">
                       Performance of contract
                     </td>
                   </tr>
-                  <tr className="border-b border-gray-200">
-                    <td className="p-4 text-gray-700">
+                  <tr className="border-b border-[#f3d8dc]">
+                    <td className="p-4 text-secondary">
                       Sending service notifications, reminders, and updates
                     </td>
-                    <td className="p-4 text-blue-600">
+                    <td className="p-4 text-button-bg font-medium">
                       Performance of contract
                     </td>
                   </tr>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <td className="p-4 text-gray-700">
+                  <tr className="border-b border-[#f3d8dc] bg-secondary-background/40">
+                    <td className="p-4 text-secondary">
                       Improving and developing new features (anonymised data)
                     </td>
-                    <td className="p-4 text-blue-600">Legitimate interests</td>
+                    <td className="p-4 text-button-bg font-medium">Legitimate interests</td>
                   </tr>
-                  <tr className="border-b border-gray-200">
-                    <td className="p-4 text-gray-700">
+                  <tr className="border-b border-[#f3d8dc]">
+                    <td className="p-4 text-secondary">
                       Complying with legal and regulatory obligations
                     </td>
-                    <td className="p-4 text-blue-600">Legal obligation</td>
+                    <td className="p-4 text-button-bg font-medium">Legal obligation</td>
                   </tr>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <td className="p-4 text-gray-700">
+                  <tr className="border-b border-[#f3d8dc] bg-secondary-background/40">
+                    <td className="p-4 text-secondary">
                       Fraud prevention and security monitoring
                     </td>
-                    <td className="p-4 text-blue-600">Legitimate interests</td>
+                    <td className="p-4 text-button-bg font-medium">Legitimate interests</td>
                   </tr>
-                  <tr className="bg-gray-50">
-                    <td className="p-4 text-gray-700">
+                  <tr className="bg-secondary-background/40">
+                    <td className="p-4 text-secondary">
                       Sending marketing emails (if opted in)
                     </td>
-                    <td className="p-4 text-blue-600">Consent</td>
+                    <td className="p-4 text-button-bg font-medium">Consent</td>
                   </tr>
                 </tbody>
               </table>
@@ -251,28 +252,28 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 4: WhatsApp Data Processing */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               4. WhatsApp Data Processing
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-secondary leading-relaxed mb-4">
               MamaMind operates through WhatsApp using the Meta WhatsApp
               Business API. When you send messages to the MamaMind bot, those
               messages are transmitted through WhatsApp&apos;s infrastructure.
               Meta (WhatsApp&apos;s parent company) processes those messages in
               accordance with their own Privacy Policy and Terms of Service.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-secondary leading-relaxed mb-4">
               MamaMind receives and processes the content of messages you send
               to the MamaMind bot solely to provide the AI response and to store
               your events and reminders. We do not sell or share WhatsApp
               message content with any third party.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-secondary leading-relaxed">
               For more information about how Meta processes your data, please
               refer to WhatsApp&apos;s Privacy Policy at{" "}
               <a
                 href="https://www.whatsapp.com/privacy"
-                className="text-blue-600 hover:text-blue-700 underline"
+                className="text-button-bg hover:underline font-medium"
               >
                 www.whatsapp.com/privacy
               </a>
@@ -282,39 +283,39 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 5: Data Sharing and Third Parties */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               5. Data Sharing and Third Parties
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-secondary leading-relaxed mb-4">
               We only share your personal data with trusted third parties in the
               following circumstances:
             </p>
 
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-secondary">
               <li>
-                <strong>Stripe (payment processing)</strong> — to handle
+                <strong className="text-primary">Stripe (payment processing)</strong> — to handle
                 subscription billing securely
               </li>
               <li>
-                <strong>OpenAI (AI processing)</strong> — to power natural
+                <strong className="text-primary">OpenAI (AI processing)</strong> — to power natural
                 language understanding in the bot, subject to data processing
                 agreements
               </li>
               <li>
-                <strong>Amazon Web Services (cloud infrastructure)</strong> — to
+                <strong className="text-primary">Amazon Web Services (cloud infrastructure)</strong> — to
                 store and serve your data with servers located in the EU
               </li>
               <li>
-                <strong>Meta/WhatsApp Business API</strong> — to deliver
+                <strong className="text-primary">Meta/WhatsApp Business API</strong> — to deliver
                 messages through the WhatsApp platform
               </li>
               <li>
-                <strong>Legal authorities</strong> — if required by law, court
+                <strong className="text-primary">Legal authorities</strong> — if required by law, court
                 order, or to protect our users from harm
               </li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mt-6">
+            <p className="text-secondary leading-relaxed mt-6">
               We never sell your personal data. We never share your data with
               advertising networks or data brokers.
             </p>
@@ -322,15 +323,15 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 6: Data Retention */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               6. Data Retention
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-secondary leading-relaxed mb-4">
               We retain your personal data only for as long as necessary to
               provide the MamaMind service or as required by law:
             </p>
 
-            <ul className="list-disc list-inside space-y-2 text-gray-700">
+            <ul className="list-disc list-inside space-y-2 text-secondary">
               <li>
                 Active accounts data retained for the duration of your
                 subscription
@@ -356,54 +357,54 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 7: Your Rights Under UK GDPR */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               7. Your Rights Under UK GDPR
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-secondary leading-relaxed mb-4">
               As a data subject, you have the following rights regarding your
               personal data:
             </p>
 
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-secondary">
               <li>
-                <strong>Right of access</strong> — Request a copy of the
+                <strong className="text-primary">Right of access</strong> — Request a copy of the
                 personal data we hold about you
               </li>
               <li>
-                <strong>Right to rectification</strong> — Request correction of
+                <strong className="text-primary">Right to rectification</strong> — Request correction of
                 inaccurate or incomplete data
               </li>
               <li>
-                <strong>Right to erasure (Right to be forgotten)</strong> —
+                <strong className="text-primary">Right to erasure (Right to be forgotten)</strong> —
                 Request deletion of your data
               </li>
               <li>
-                <strong>Right to restriction</strong> — Request we limit how we
+                <strong className="text-primary">Right to restriction</strong> — Request we limit how we
                 process your data
               </li>
               <li>
-                <strong>Right to data portability</strong> — Receive your data
+                <strong className="text-primary">Right to data portability</strong> — Receive your data
                 in a structured, machine-readable format
               </li>
               <li>
-                <strong>Right to object</strong> — Object to processing based on
+                <strong className="text-primary">Right to object</strong> — Object to processing based on
                 legitimate interests
               </li>
               <li>
-                <strong>Right to withdraw consent</strong> — Withdraw consent
+                <strong className="text-primary">Right to withdraw consent</strong> — Withdraw consent
                 for marketing at any time
               </li>
               <li>
-                <strong>Right to lodge a complaint</strong> — with the ICO
+                <strong className="text-primary">Right to lodge a complaint</strong> — with the ICO
                 (Information Commissioner&apos;s Office)
               </li>
             </ul>
 
-            <p className="text-gray-700 leading-relaxed mt-6">
+            <p className="text-secondary leading-relaxed mt-6">
               To exercise any of these rights, please email{" "}
               <a
                 href="mailto:privacy@mamamind.ai"
-                className="text-blue-600 hover:text-blue-700 underline"
+                className="text-button-bg hover:underline font-medium"
               >
                 privacy@mamamind.ai
               </a>{" "}
@@ -414,15 +415,15 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 8: Security Measures */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               8. Security Measures
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-secondary leading-relaxed mb-4">
               We implement industry-standard security measures to protect your
               personal data, including:
             </p>
 
-            <ul className="list-disc list-inside space-y-2 text-gray-700">
+            <ul className="list-disc list-inside space-y-2 text-secondary">
               <li>AES-256 encryption for all data stored at rest</li>
               <li>TLS 1.3 encryption for all data in transit</li>
               <li>Multi-factor authentication for internal system access</li>
@@ -440,10 +441,10 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 9: International Data Transfers */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               9. International Data Transfers
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-secondary leading-relaxed">
               Your data is primarily stored and processed within the UK and
               European Economic Area (EEA). Where we use service providers based
               outside the UK/EEA (such as OpenAI in the United States), we
@@ -454,22 +455,22 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 10: Children's Privacy */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               10. Children&apos;s Privacy
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-secondary leading-relaxed mb-4">
               MamaMind is designed for use by adults (18+) managing family
               accounts. We do not knowingly collect personal data directly from
               children under the age of 13. If a parent or guardian adds family
               members who are children, the parent takes responsibility for
               those members&apos; data under their account.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-secondary leading-relaxed">
               If you believe a child has provided us with personal data without
               appropriate consent, please contact us immediately at{" "}
               <a
                 href="mailto:privacy@mamamind.ai"
-                className="text-blue-600 hover:text-blue-700 underline"
+                className="text-button-bg hover:underline font-medium"
               >
                 privacy@mamamind.ai
               </a>
@@ -479,15 +480,15 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 11: Cookies */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               11. Cookies
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-secondary leading-relaxed">
               Our website uses cookies to improve your experience. Please see
               our{" "}
               <a
-                href="/cookies"
-                className="text-blue-600 hover:text-blue-700 underline"
+                href="/cookie-policy"
+                className="text-button-bg hover:underline font-medium"
               >
                 Cookie Policy
               </a>{" "}
@@ -498,10 +499,10 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 12: Changes to This Policy */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               12. Changes to This Policy
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-secondary leading-relaxed mb-4">
               We may update this Privacy Policy from time to time to reflect
               changes in our practices, technology or legal requirements. Where
               changes are material, we will notify you by email at least 14 days
@@ -513,36 +514,36 @@ const PrivacyPolicyPage = () => {
 
           {/* Section 13: Contact Us */}
           <div className="mb-0">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl font-bold text-primary mb-6">
               13. Contact Us
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-secondary leading-relaxed mb-6">
               For any privacy-related questions, subject access requests, or
               complaints, please contact:
             </p>
 
-            <div className="bg-amber-50 border border-amber-200 p-6 rounded-lg">
-              <h3 className="font-semibold text-gray-900 mb-3">
+            <div className="bg-secondary-background border border-[#f3d8dc] p-6 rounded-2xl">
+              <h3 className="font-semibold text-primary mb-3">
                 MamaMind — Data Protection
               </h3>
-              <p className="text-gray-700 mb-2">
+              <p className="text-secondary mb-2">
                 Email:{" "}
                 <a
                   href="mailto:privacy@mamamind.ai"
-                  className="text-blue-600 hover:text-blue-700 underline"
+                  className="text-button-bg hover:underline font-medium"
                 >
                   privacy@mamamind.ai
                 </a>
               </p>
-              <p className="text-gray-700 mb-4">
+              <p className="text-secondary mb-4">
                 Address: [Your Business Address]
               </p>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-secondary">
                 You also have the right to lodge a complaint with the
                 Information Commissioner&apos;s Office (ICO):{" "}
                 <a
                   href="https://ico.org.uk"
-                  className="text-blue-600 hover:text-blue-700 underline"
+                  className="text-button-bg hover:underline font-medium"
                 >
                   ico.org.uk
                 </a>{" "}
